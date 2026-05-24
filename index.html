@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aykon Ventures — Dubai Real Estate Investment</title>
+<meta name="description" content="Aykon Ventures — brand-led real estate investment advisory in Dubai. Off-plan opportunities, investor guidance, and a client experience built on trust." />
+<meta property="og:title" content="Aykon Ventures — Dubai Real Estate Investment" />
+<meta property="og:description" content="Led by Prachi Manghnani — 18 years planning Dubai real estate investments for private clients and consortiums." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="images/prachi.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Aykon Ventures — Dubai Real Estate Investment" />
+<meta name="twitter:description" content="Led by Prachi Manghnani — 18 years planning Dubai real estate investments for private clients and consortiums." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0B0B0D;
+    --bg-soft:#121216;
+    --panel:#16161b;
+    --line:rgba(201,162,39,0.18);
+    --gold:#C9A227;
+    --gold-bright:#E7C75A;
+    --text:#F4F1EA;
+    --muted:#A19C90;
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'Inter',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    font-weight:300;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 28px;
+    background:rgba(11,11,13,0.72);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.04);
+  }
+  .brand{font-family:var(--serif);font-size:25px;font-weight:600;letter-spacing:.5px}
+  .brand span{color:var(--gold)}
+  .nav-cta{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--sans);font-size:14px;font-weight:500;letter-spacing:.3px;
+    padding:10px 18px;border:1px solid var(--gold);border-radius:40px;color:var(--gold-bright);
+    transition:.25s ease;
+  }
+  .nav-cta:hover{background:var(--gold);color:#0B0B0D}
+
+  header{
+    position:relative;
+    min-height:100vh;
+    display:flex;align-items:center;
+    padding:120px 0 80px;
+    background:
+      radial-gradient(1100px 600px at 78% -5%, rgba(201,162,39,0.14), transparent 60%),
+      radial-gradient(900px 700px at 12% 110%, rgba(201,162,39,0.06), transparent 55%),
+      var(--bg);
+    overflow:hidden;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+  .eyebrow{
+    font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);
+    font-weight:500;margin-bottom:22px;display:flex;align-items:center;gap:12px;
+  }
+  .eyebrow::before{content:"";width:38px;height:1px;background:var(--gold)}
+  h1{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(42px,6vw,72px);line-height:1.04;letter-spacing:.5px;
+    margin-bottom:24px;
+  }
+  h1 em{font-style:italic;color:var(--gold-bright)}
+  .lede{font-size:19px;color:var(--muted);max-width:520px;margin-bottom:38px;font-weight:300}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--sans);font-size:15px;font-weight:500;letter-spacing:.3px;
+    padding:15px 28px;border-radius:46px;transition:.25s ease;cursor:pointer;border:1px solid transparent;
+  }
+  .btn-gold{background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:#0B0B0D}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(201,162,39,0.28)}
+  .btn-ghost{border-color:rgba(244,241,234,0.25);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-bright)}
+  .btn svg{width:18px;height:18px}
+
+  .hero-card{
+    background:linear-gradient(160deg,rgba(201,162,39,0.10),rgba(255,255,255,0.02));
+    border:1px solid var(--line);border-radius:18px;padding:34px;
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+  }
+  .hero-card h3{font-family:var(--serif);font-size:26px;font-weight:600;margin-bottom:18px}
+  .hero-card ul{list-style:none}
+  .hero-card li{
+    display:flex;gap:12px;align-items:flex-start;padding:11px 0;
+    border-bottom:1px solid rgba(255,255,255,0.05);font-size:15px;color:var(--text)
+  }
+  .hero-card li:last-child{border-bottom:none}
+  .hero-card li span{color:var(--gold);font-weight:600;flex-shrink:0}
+
+  .proof{border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);background:var(--bg-soft)}
+  .proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .stat{padding:42px 24px;text-align:center;border-right:1px solid rgba(255,255,255,0.05)}
+  .stat:last-child{border-right:none}
+  .stat .num{font-family:var(--serif);font-size:clamp(34px,4vw,46px);color:var(--gold-bright);font-weight:600;line-height:1}
+  .stat .lbl{font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-top:12px}
+
+  section.block{padding:84px 0}
+  .sec-head{max-width:640px;margin-bottom:52px}
+  .sec-head .eyebrow{margin-bottom:16px}
+  .sec-head h2{font-family:var(--serif);font-size:clamp(30px,4vw,44px);font-weight:600;line-height:1.1}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .feature{
+    background:var(--panel);border:1px solid rgba(255,255,255,0.05);border-radius:16px;
+    padding:32px 28px;transition:.25s ease;
+  }
+  .feature:hover{border-color:var(--line);transform:translateY(-4px)}
+  .feature .ic{
+    width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    background:rgba(201,162,39,0.12);color:var(--gold-bright);margin-bottom:20px;
+  }
+  .feature .ic svg{width:24px;height:24px}
+  .feature h4{font-family:var(--serif);font-size:23px;font-weight:600;margin-bottom:10px}
+  .feature p{font-size:15px;color:var(--muted)}
+
+  .partners{margin-top:54px;text-align:center}
+  .partners .cap{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+  .partner-row{display:flex;justify-content:center;flex-wrap:wrap;gap:14px 36px}
+  .partner-row span{font-family:var(--serif);font-size:22px;color:rgba(244,241,234,0.55);font-weight:500}
+
+  .founder{background:var(--bg-soft);border-top:1px solid rgba(255,255,255,0.05)}
+  .founder-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:54px;align-items:center}
+  .founder-portrait{
+    position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .founder-portrait img{
+    width:100%;height:100%;object-fit:cover;object-position:center top;
+    display:block;
+  }
+  .founder-portrait .portrait-fallback{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(120% 120% at 30% 10%, rgba(201,162,39,0.22), transparent 55%),
+      linear-gradient(160deg,#1a1a20,#0d0d11);
+    display:flex;align-items:center;justify-content:center;flex-direction:column;
+  }
+  .monogram{font-family:var(--serif);font-size:88px;font-weight:600;color:var(--gold-bright);line-height:1}
+  .founder-portrait .pname{margin-top:10px;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+  .founder h2{font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:600;line-height:1.12;margin-bottom:8px}
+  .founder .role{color:var(--gold);font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-bottom:22px}
+  .founder p{color:var(--muted);font-size:16px;margin-bottom:16px}
+  .founder p strong{color:var(--text);font-weight:500}
+  .badge{
+    display:inline-flex;align-items:center;gap:10px;margin-top:8px;
+    padding:11px 18px;border:1px solid var(--line);border-radius:40px;
+    font-size:13px;letter-spacing:.5px;color:var(--gold-bright);background:rgba(201,162,39,0.06);
+  }
+  .badge svg{width:16px;height:16px}
+
+  .contact{background:var(--bg);border-top:1px solid rgba(255,255,255,0.05)}
+  .contact-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:start}
+  .contact h2{font-family:var(--serif);font-size:clamp(30px,4vw,44px);font-weight:600;line-height:1.1;margin-bottom:18px}
+  .contact .lede{font-size:17px}
+  .channels{margin-top:32px;display:flex;flex-direction:column;gap:14px}
+  .chan{
+    display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid rgba(255,255,255,0.07);
+    border-radius:12px;transition:.25s ease;
+  }
+  .chan:hover{border-color:var(--gold);background:rgba(201,162,39,0.05)}
+  .chan .ci{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(201,162,39,0.12);color:var(--gold-bright);flex-shrink:0}
+  .chan .ci svg{width:20px;height:20px}
+  .chan b{font-weight:500;font-size:15px}
+  .chan small{display:block;color:var(--muted);font-size:13px}
+
+  form{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:34px}
+  .field{margin-bottom:18px}
+  label{display:block;font-size:13px;letter-spacing:.5px;color:var(--muted);margin-bottom:8px}
+  input,select,textarea{
+    width:100%;background:#0d0d11;border:1px solid rgba(255,255,255,0.09);border-radius:10px;
+    padding:13px 15px;color:var(--text);font-family:var(--sans);font-size:15px;font-weight:300;transition:.2s;
+  }
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+  select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A19C90' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer}
+  textarea{resize:vertical;min-height:90px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  form .btn-gold{width:100%;justify-content:center;margin-top:6px;border:none;font-size:16px;padding:16px 28px}
+  .form-note{font-size:12px;color:var(--muted);text-align:center;margin-top:14px}
+
+  .toast{
+    position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:14px 22px;font-size:14px;color:var(--gold-bright);
+    display:flex;align-items:center;gap:10px;
+    box-shadow:0 8px 32px rgba(0,0,0,0.4);
+    transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .35s ease;
+    opacity:0;z-index:100;white-space:nowrap;
+  }
+  .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+  footer{padding:44px 0;text-align:center;border-top:1px solid rgba(255,255,255,0.05)}
+  .foot-brand{font-family:var(--serif);font-size:24px;font-weight:600;margin-bottom:14px}
+  .foot-brand span{color:var(--gold)}
+  .socials{display:flex;justify-content:center;gap:16px;margin-bottom:18px}
+  .socials a{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:.25s}
+  .socials a:hover{border-color:var(--gold);color:var(--gold-bright);transform:translateY(-2px)}
+  .socials svg{width:19px;height:19px}
+  .copy{font-size:13px;color:var(--muted)}
+
+  @media(max-width:880px){
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .proof-grid{grid-template-columns:1fr 1fr}
+    .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,0.05)}
+    .three{grid-template-columns:1fr}
+    .founder-grid{grid-template-columns:1fr;gap:32px}
+    .founder-portrait{max-width:340px;margin:0 auto}
+    .contact-grid{grid-template-columns:1fr;gap:36px}
+  }
+  @media(max-width:480px){
+    .row2{grid-template-columns:1fr}
+    nav .brand{font-size:21px}
+    .proof-grid{grid-template-columns:1fr 1fr}
+    .lede{font-size:17px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Aykon<span>.</span> Ventures</div>
+  <a class="nav-cta" href="https://wa.me/971563971998" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+    WhatsApp
+  </a>
+</nav>
+
+<header>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Dubai Real Estate Investment</div>
+      <h1>Invest in Dubai with people who <em>actually know the market.</em></h1>
+      <p class="lede">Led by Prachi Manghnani — 18 years planning Dubai real estate investments for private clients and consortiums. From off-plan to branded residences, we help you secure the right asset with a relationship-first approach most brokerages don't offer.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href="#contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          Book a consultation
+        </a>
+        <a class="btn btn-ghost" href="https://instagram.com/prachi89av" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.41-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.17.42-.36 1.04-.41 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.24 1.77.41 2.19.21.55.47.94.88 1.35.41.41.8.67 1.35.88.42.17 1.04.36 2.19.41 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.24 2.19-.41.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.17-.42.36-1.04.41-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.24-1.77-.41-2.19a3.6 3.6 0 00-.88-1.35 3.6 3.6 0 00-1.35-.88c-.42-.17-1.04-.36-2.19-.41-1.24-.06-1.61-.07-4.76-.07zm0 2.76a5.46 5.46 0 110 10.92 5.46 5.46 0 010-10.92zm0 9a3.54 3.54 0 100-7.08 3.54 3.54 0 000 7.08zm6.95-9.22a1.27 1.27 0 11-2.55 0 1.27 1.27 0 012.55 0z"/></svg>
+          @prachi89av
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>Why investors work with us</h3>
+      <ul>
+        <li><span>01</span> Curated off-plan &amp; ready opportunities — not whatever pays the highest commission.</li>
+        <li><span>02</span> Honest yield, payment-plan and exit guidance before you commit.</li>
+        <li><span>03</span> A founder-led client experience from first call to handover.</li>
+        <li><span>04</span> Deep, on-the-ground Dubai developer relationships.</li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="proof">
+  <div class="wrap proof-grid">
+    <div class="stat"><div class="num">18 Yrs</div><div class="lbl">In Dubai Real Estate</div></div>
+    <div class="stat"><div class="num">Top 100</div><div class="lbl">Women Achievers · MEA</div></div>
+    <div class="stat"><div class="num">Branded</div><div class="lbl">Residences Specialist</div></div>
+    <div class="stat"><div class="num">Global</div><div class="lbl">Dubai · Hyderabad &amp; Beyond</div></div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">What we do</div>
+      <h2>Real estate investment, handled the way it should be.</h2>
+    </div>
+    <div class="three">
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 21v-6h6v6"/></svg></div>
+        <h4>Off-Plan Advisory</h4>
+        <p>Access to launches from Dubai's leading developers, with a clear read on price, payment plans and which projects are actually worth the entry.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h4>Investment Strategy</h4>
+        <p>We look at yield, capital appreciation and your goals — then recommend what fits, including when the smart move is to wait.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h4>Concierge Experience</h4>
+        <p>From first conversation to keys in hand — paperwork, financing introductions and handover — managed personally, not passed around a call centre.</p>
+      </div>
+    </div>
+    <div class="partners">
+      <div class="cap">Branded residences in association with</div>
+      <div class="partner-row">
+        <span>Lamborghini</span>
+        <span>Aston Martin</span>
+        <span>Anna Fendi</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block founder">
+  <div class="wrap founder-grid">
+    <div class="founder-portrait">
+      <img
+        src="images/prachi.jpg"
+        alt="Prachi Manghnani — Founder, Aykon Ventures"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+      />
+      <div class="portrait-fallback" style="display:none">
+        <div class="monogram">PM</div>
+        <div class="pname">Prachi Manghnani</div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow">The founder</div>
+      <h2>Prachi Manghnani</h2>
+      <div class="role">Realtor &amp; Property Investment Consultant</div>
+      <p>Dubai-born and raised, Prachi has spent <strong>18 years planning real estate investments</strong> for private individuals and consortiums — known for an honest, no-nonsense approach in a market that rarely rewards it.</p>
+      <p>Her work spans <strong>branded residences with Lamborghini, Aston Martin and Anna Fendi</strong>, and her reach now extends from Dubai to Hyderabad and beyond.</p>
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5L7 22l5-3 5 3-1.5-8.5"/></svg>
+        Recognised in the Super 100 — Women Achievers, Middle East &amp; Africa
+      </span>
+    </div>
+  </div>
+</section>
+
+<section class="block contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="eyebrow">Let's talk</div>
+      <h2>Tell us what you're looking for.</h2>
+      <p class="lede">Share a few details and we'll come back with the right Dubai opportunities for your budget and goals. Prefer to chat now? Message us directly.</p>
+      <div class="channels">
+        <a class="chan" href="https://wa.me/971563971998" target="_blank" rel="noopener noreferrer">
+          <div class="ci"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.607z"/></svg></div>
+          <div><b>WhatsApp</b><small>+971 56 397 1998</small></div>
+        </a>
+        <a class="chan" href="https://instagram.com/prachi89av" target="_blank" rel="noopener noreferrer">
+          <div class="ci"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 4.38a5.46 5.46 0 110 10.92 5.46 5.46 0 010-10.92zm0 9a3.54 3.54 0 100-7.08 3.54 3.54 0 000 7.08zm6.95-9.22a1.27 1.27 0 11-2.55 0 1.27 1.27 0 012.55 0z"/></svg></div>
+          <div><b>Instagram</b><small>@prachi89av</small></div>
+        </a>
+      </div>
+    </div>
+
+    <form id="leadForm" novalidate>
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" />
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="phone">Phone / WhatsApp</label>
+          <input type="tel" id="phone" name="phone" placeholder="+971 ..." required autocomplete="tel" />
+        </div>
+        <div class="field">
+          <label for="budget">Budget (AED)</label>
+          <select id="budget" name="budget">
+            <option value="Not sure yet">Not sure yet</option>
+            <option value="Under 1M">Under 1M</option>
+            <option value="1M-3M">1M – 3M</option>
+            <option value="3M-5M">3M – 5M</option>
+            <option value="5M-10M">5M – 10M</option>
+            <option value="10M+">10M+</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="interest">I'm interested in</label>
+        <select id="interest" name="interest">
+          <option value="Off-plan investment">Off-plan investment</option>
+          <option value="Ready / resale property">Ready / resale property</option>
+          <option value="Rental yield / portfolio">Rental yield / portfolio</option>
+          <option value="Just exploring the market">Just exploring the market</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Anything else? (optional)</label>
+        <textarea id="message" name="message" placeholder="Areas, timeline, goals..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-gold">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+        Send via WhatsApp
+      </button>
+      <p class="form-note">Submitting opens WhatsApp with your details pre-filled, ready to send.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">Aykon<span>.</span> Ventures</div>
+    <div class="socials">
+      <a href="https://wa.me/971563971998" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.607z"/></svg>
+      </a>
+      <a href="https://instagram.com/prachi89av" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 4.38a5.46 5.46 0 110 10.92 5.46 5.46 0 010-10.92zm0 9a3.54 3.54 0 100-7.08 3.54 3.54 0 000 7.08zm6.95-9.22a1.27 1.27 0 11-2.55 0 1.27 1.27 0 012.55 0z"/></svg>
+      </a>
+    </div>
+    <div class="copy">&copy; <span id="yr"></span> Aykon Ventures &middot; Dubai, UAE &middot; Real Estate Investment Advisory</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  document.getElementById('leadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var name     = document.getElementById('name').value.trim();
+    var phone    = document.getElementById('phone').value.trim();
+    var budget   = document.getElementById('budget').value;
+    var interest = document.getElementById('interest').value;
+    var message  = document.getElementById('message').value.trim();
+
+    if (!name || !phone) {
+      showToast('Please fill in your name and phone number.');
+      return;
+    }
+
+    var lines = [
+      'New enquiry — Aykon Ventures',
+      '',
+      'Name: ' + name,
+      'Phone: ' + phone,
+      'Budget: ' + budget,
+      'Interested in: ' + interest
+    ];
+    if (message) { lines.push('Notes: ' + message); }
+
+    var text = encodeURIComponent(lines.join('\n'));
+    window.open('https://wa.me/971563971998?text=' + text, '_blank', 'noopener,noreferrer');
+  });
+
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 3500);
+  }
+</script>
+</body>
+</html>
