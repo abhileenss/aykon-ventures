@@ -1,0 +1,80 @@
+{
+  "$schema": "Aykon Ventures · Typography System · Edition 02 · Final",
+  "faces": {
+    "cinzel": {
+      "name": "Cinzel",
+      "role": "wordmark-display",
+      "usage": "the logo wordmark, display caps, section titles, vertical names — CAPS ONLY",
+      "google_fonts": "https://fonts.google.com/specimen/Cinzel",
+      "local": "fonts/Cinzel.ttf",
+      "weights": [400, 600, 700, 900],
+      "notes": "Roman inscriptional caps — the lettering of monuments, banks and maisons. Placeholder for the wordmark until the custom Route C cut lands from the type designer."
+    },
+    "cormorant": {
+      "name": "Cormorant",
+      "role": "editorial",
+      "usage": "headlines, deks, pull-statements — sentence case, the voice of every document",
+      "google_fonts": "https://fonts.google.com/specimen/Cormorant",
+      "local": "fonts/Cormorant.ttf",
+      "local_italic": "fonts/Cormorant-Italic.ttf",
+      "weights": [300, 400, 500, 600, 700],
+      "notes": "High-contrast serif — jewellery-house elegance without the fashion-house froth"
+    },
+    "inter": {
+      "name": "Inter",
+      "role": "body",
+      "usage": "all body copy, UI text, captions, decks, screens — never the wordmark or headlines",
+      "google_fonts": "https://fonts.google.com/specimen/Inter",
+      "local": "fonts/Inter.ttf",
+      "weights": [400, 500, 600, 680, 700],
+      "notes": "A quiet, neutral grotesque that steps back so the serifs lead"
+    },
+    "amiri": {
+      "name": "Amiri",
+      "role": "arabic",
+      "usage": "ALL Arabic text — wordmark (ايكون فينتشرز), headlines, body — co-equal with Latin",
+      "google_fonts": "https://fonts.google.com/specimen/Amiri",
+      "local": "fonts/Amiri-Regular.ttf",
+      "local_bold": "fonts/Amiri-Bold.ttf",
+      "weights": [400, 700],
+      "notes": "Classical Naskh — heritage register. Designed beside the Latin from sketch one. Never translated by tool — bilingual copy lead writes Arabic native."
+    },
+    "jetbrains_mono": {
+      "name": "JetBrains Mono",
+      "role": "data",
+      "usage": "monospace for figures, terms, eyebrows, labels, prices, stakes, RERA partner names",
+      "google_fonts": "https://fonts.google.com/specimen/JetBrains+Mono",
+      "local": "fonts/JetBrainsMono.ttf",
+      "weights": [100, 200, 300, 400, 500, 600, 700, 800],
+      "notes": "The 'plain about money' principle made typographic — figures line up, proof reads as proof"
+    }
+  },
+  "scale": [
+    { "tier": "wordmark", "size_pt": 50, "face": "cinzel", "weight": 700, "letter_spacing_pt": 7, "transform": "uppercase", "leading": 1.05 },
+    { "tier": "display",  "size_pt": 60, "face": "cormorant", "weight": 600, "letter_spacing_pt": 0, "leading": 1.06 },
+    { "tier": "h1",       "size_pt": 40, "face": "cormorant", "weight": 600, "leading": 1.08 },
+    { "tier": "h2",       "size_pt": 28, "face": "cormorant", "weight": 600, "leading": 1.15 },
+    { "tier": "h3",       "size_pt": 14, "face": "inter",     "weight": 680, "leading": 1.4 },
+    { "tier": "body",     "size_pt": 14, "face": "inter",     "weight": 400, "leading": 1.62 },
+    { "tier": "caption",  "size_pt": 12, "face": "inter",     "weight": 400, "color": "muted", "leading": 1.5 },
+    { "tier": "eyebrow",  "size_pt": 11, "face": "jetbrains_mono", "weight": 500, "letter_spacing_pt": 2, "transform": "uppercase", "color": "emerald-or-gold" },
+    { "tier": "data",     "size_pt": 11, "face": "jetbrains_mono", "weight": 500 }
+  ],
+  "pairing_rules": [
+    "Cinzel names. Cormorant writes. Inter reads. Mono carries the money.",
+    "Serif leads, sans supports. Never invert.",
+    "Sentence case always — except Cinzel display caps and mono eyebrows, which are caps by nature.",
+    "Arabic ايكون فينتشرز gets its own line — never squeeze Amiri to Latin x-height; give diacritics vertical room.",
+    "Prices, stakes, terms and labels in JetBrains Mono.",
+    "Weights restrained: Cinzel 600-700; Cormorant 400-600; Inter 400-680. No ultra-thin, no black."
+  ],
+  "tailwind_config_snippet": {
+    "fontFamily": {
+      "wordmark":  ["Cinzel", "serif"],
+      "editorial": ["Cormorant", "serif"],
+      "body":      ["Inter", "sans-serif"],
+      "arabic":    ["Amiri", "serif"],
+      "mono":      ["\"JetBrains Mono\"", "monospace"]
+    }
+  }
+}

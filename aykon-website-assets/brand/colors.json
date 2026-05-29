@@ -1,0 +1,63 @@
+{
+  "$schema": "Aykon Ventures · Colour System · Edition 02 · Final",
+  "ratio": {
+    "limestone": 70,
+    "onyx": 22,
+    "emerald": 5,
+    "gold": 3
+  },
+  "palette": {
+    "limestone": {
+      "hex": "#EDE7DB",
+      "rgb": [237, 231, 219],
+      "role": "ground",
+      "usage": "the world / page background · 70%",
+      "notes": "the Dubai stone — limestone holds the ground on every surface"
+    },
+    "onyx": {
+      "hex": "#14110E",
+      "rgb": [20, 17, 14],
+      "role": "ink",
+      "usage": "type, authority, dark-mode canvas · 22%"
+    },
+    "emerald": {
+      "hex": "#0E4A38",
+      "rgb": [14, 74, 56],
+      "role": "signature-accent",
+      "usage": "the everyday accent · 5% · rules, eyebrows, callouts, Jewels packaging, hero moments",
+      "notes": "emerald + gold is the jewellery pairing — never used as wallpaper"
+    },
+    "gold": {
+      "hex": "#9C7A3C",
+      "rgb": [156, 122, 60],
+      "role": "wordmark-only",
+      "usage": "wordmark and seal only · 3% maximum on any surface",
+      "discipline": "MATTE only — never glossy foil, never gradient, never 3D bevel, never chrome"
+    },
+    "gold_light": {
+      "hex": "#C49A56",
+      "rgb": [196, 154, 86],
+      "role": "wordmark-on-dark",
+      "usage": "for the wordmark when set on Onyx or other dark surfaces"
+    },
+    "emerald_light": {
+      "hex": "#1F6A52",
+      "rgb": [31, 106, 82],
+      "role": "emerald-on-dark",
+      "usage": "for emerald accent on dark surfaces / dark-mode"
+    },
+    "paper": {
+      "hex": "#FBF9F4",
+      "rgb": [251, 249, 244],
+      "role": "ground-light",
+      "usage": "lighter ground for screens and documents · limestone's quieter sibling"
+    }
+  },
+  "discipline": [
+    "Matte gold only — never glossy foil, never gradient bevel",
+    "Emerald never as wallpaper — used as accent, rules, type, small fills only",
+    "Onyx and limestone hold the ground; emerald and gold are accents",
+    "Dropped: maroon/oxblood entirely; bronze folded into gold",
+    "Dark mode: onyx becomes canvas; limestone becomes type; emerald shifts to Emerald Light"
+  ]
+}

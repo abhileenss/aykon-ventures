@@ -1,0 +1,881 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:"Cinzel";src:url("fonts/Cinzel.ttf");font-weight:400 900;}
+@font-face{font-family:"Cormorant";src:url("fonts/Cormorant.ttf");font-weight:300 700;}
+@font-face{font-family:"Cormorant";src:url("fonts/Cormorant-Italic.ttf");font-weight:300 700;font-style:italic;}
+@font-face{font-family:"Inter";src:url("fonts/Inter.ttf");font-weight:100 900;}
+@font-face{font-family:"JetBrains Mono";src:url("fonts/JetBrainsMono.ttf");font-weight:100 800;}
+@font-face{font-family:"Amiri";src:url("fonts/Amiri-Regular.ttf");font-weight:400;}
+@font-face{font-family:"Amiri";src:url("fonts/Amiri-Bold.ttf");font-weight:700;}
+
+:root{
+  --onyx:#14110E; --onyx-soft:#2A2520;
+  --limestone:#EDE7DB; --limestone-deep:#E2DACB; --paper:#FBF9F4;
+  --gold:#9C7A3C; --gold-lt:#C49A56;
+  --emerald:#0E4A38; --emerald-lt:#1F6A52; --emerald-deep:#093526;
+  --rule:#CFC6B4; --muted:#6B6253;
+}
+
+@page{ size:A4; margin:22mm 20mm 20mm 20mm;
+  @top-left{ content:"AYKON VENTURES"; font-family:"JetBrains Mono"; font-size:7pt; letter-spacing:1.5pt; color:var(--muted); text-transform:uppercase; }
+  @top-right{ content:"BRAND BOOK · MASTER EDITION"; font-family:"JetBrains Mono"; font-size:7pt; letter-spacing:1pt; color:var(--muted); text-transform:uppercase; }
+  @bottom-right{ content:counter(page); font-family:"JetBrains Mono"; font-size:8pt; color:var(--muted); }
+  @bottom-left{ content:"WE BACK WHAT WE SELL"; font-family:"JetBrains Mono"; font-size:6.5pt; letter-spacing:2pt; color:var(--emerald); text-transform:uppercase; }
+}
+@page cover{margin:0; @top-left{content:""} @top-right{content:""} @bottom-left{content:""} @bottom-right{content:""}}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-family:"Inter";color:var(--onyx);font-size:10.5pt;line-height:1.62;}
+
+/* COVER */
+.cover{page:cover;background:var(--onyx);color:var(--limestone);height:297mm;padding:28mm 26mm 24mm;display:flex;flex-direction:column;page-break-after:always;position:relative;}
+.cover .ey{font-family:"JetBrains Mono";font-size:8pt;letter-spacing:3pt;text-transform:uppercase;color:var(--emerald-lt);margin-bottom:auto;}
+.cover .markblock{margin:auto 0;}
+.cover .wm{font-family:"Cinzel";font-weight:700;font-size:54pt;letter-spacing:7pt;line-height:1.05;color:var(--gold-lt);}
+.cover .wm b{font-weight:800;color:#E3C277;display:block;font-size:40pt;letter-spacing:9pt;margin-top:6pt;}
+.cover .goldrule{height:1px;background:var(--gold);width:160pt;margin:18pt 0;}
+.cover .ar{font-family:"Amiri";font-weight:700;font-size:32pt;color:var(--gold-lt);direction:rtl;line-height:1;}
+.cover .doctitle{font-family:"Cormorant";font-style:italic;font-weight:500;font-size:24pt;color:var(--limestone);margin-top:32pt;}
+.cover .meta{margin-top:auto;font-family:"JetBrains Mono";font-size:8pt;letter-spacing:1pt;line-height:2;color:#9a8a6a;text-transform:uppercase;}
+.cover .corner{position:absolute;bottom:24mm;right:26mm;font-family:"JetBrains Mono";font-size:7pt;letter-spacing:2.5pt;text-transform:uppercase;color:var(--emerald);text-align:right;line-height:1.8;}
+
+/* SECTION SCAFFOLD */
+.sec{page-break-before:always;}
+.k{font-family:"JetBrains Mono";font-size:8pt;letter-spacing:2.5pt;text-transform:uppercase;color:var(--emerald);margin-bottom:6pt;}
+h1.s{font-family:"Cormorant";font-weight:600;font-size:34pt;line-height:1.06;margin:0 0 4pt;}
+.dek{font-family:"Cormorant";font-style:italic;font-weight:500;font-size:16.5pt;color:var(--onyx-soft);margin:0 0 18pt;line-height:1.32;break-after:avoid;}
+h2{font-family:"Inter";font-weight:680;font-size:12.5pt;margin:18pt 0 4pt;break-after:avoid;}
+h3{font-family:"JetBrains Mono";font-weight:600;font-size:8.5pt;letter-spacing:1.5pt;text-transform:uppercase;color:var(--muted);margin:14pt 0 5pt;break-after:avoid;}
+p{margin:0 0 9pt;orphans:2;widows:2;}
+.lead{font-family:"Cormorant";font-weight:500;font-size:17pt;line-height:1.4;margin:0 0 12pt;}
+strong,b{font-weight:680;}
+em,i{font-style:italic;}
+
+.statement{font-family:"Cormorant";font-weight:600;font-size:23pt;line-height:1.24;margin:6pt 0 12pt;break-inside:avoid;}
+.callout{border-left:2px solid var(--emerald);background:var(--limestone);padding:11pt 14pt;margin:12pt 0;font-family:"Cormorant";font-style:italic;font-size:13pt;line-height:1.42;color:var(--onyx-soft);break-inside:avoid;}
+.callout.dark{background:var(--onyx);color:var(--limestone);border-color:var(--emerald-lt);font-style:normal;font-family:"Inter";}
+
+ul.reasoned{list-style:none;padding:0;margin:6pt 0 10pt;}
+ul.reasoned li{padding:6pt 0 6pt 16pt;border-bottom:1px solid var(--rule);position:relative;break-inside:avoid;}
+ul.reasoned li:before{content:"—";position:absolute;left:0;color:var(--emerald);font-weight:700;}
+ul.plain{margin:6pt 0 10pt;padding-left:16pt;}
+ul.plain li{margin:0 0 5pt;line-height:1.5;}
+
+.tag{display:inline-block;font-family:"JetBrains Mono";font-size:7pt;letter-spacing:1.5pt;text-transform:uppercase;padding:2pt 6pt;border:1px solid var(--emerald);color:var(--emerald);border-radius:2px;}
+.tag.locked{background:var(--emerald);color:var(--paper);}
+.tag.open{border-color:var(--gold);color:var(--gold);}
+.tag.warn{border-color:#B0392B;color:#B0392B;}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14pt 22pt;margin:10pt 0;break-inside:avoid;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10pt;margin:10pt 0;}
+.grid4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8pt;margin:10pt 0;}
+.cell{break-inside:avoid;}
+.cell .lab{font-family:"JetBrains Mono";font-size:7.5pt;letter-spacing:1.5pt;text-transform:uppercase;color:var(--emerald);margin-bottom:3pt;}
+.cell .big{font-family:"Cormorant";font-size:16pt;font-weight:600;line-height:1.16;margin-bottom:3pt;}
+.cell p{font-size:9pt;line-height:1.5;color:var(--onyx-soft);}
+
+table{width:100%;border-collapse:collapse;margin:10pt 0;font-size:9pt;break-inside:auto;}
+th{font-family:"JetBrains Mono";font-size:7pt;letter-spacing:1.2pt;text-transform:uppercase;text-align:left;color:var(--muted);border-bottom:1.5px solid var(--onyx);padding:5pt 8pt 5pt 0;vertical-align:bottom;}
+td{padding:7pt 8pt 7pt 0;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.45;}
+td.on{font-family:"Cormorant";font-weight:600;font-size:12pt;color:var(--onyx);}
+td.off{color:var(--muted);}
+
+.bigsw{height:80pt;border-radius:3px;display:flex;flex-direction:column;justify-content:flex-end;padding:8pt;box-sizing:border-box;margin-bottom:5pt;}
+.bigsw .nm{font-family:"Cormorant";font-size:15pt;font-weight:600;}
+.bigsw .hx{font-family:"JetBrains Mono";font-size:7.5pt;}
+.ratio{display:flex;height:36pt;border-radius:3px;overflow:hidden;margin:10pt 0;font-family:"JetBrains Mono";font-size:7.5pt;}
+.ratio div{display:flex;align-items:center;padding-left:8pt;letter-spacing:1pt;}
+
+.scale-row{display:flex;align-items:baseline;gap:14pt;border-bottom:1px solid var(--rule);padding:8pt 0;}
+.scale-row .lab{font-family:"JetBrains Mono";font-size:7.5pt;letter-spacing:1pt;color:var(--emerald);width:110pt;flex-shrink:0;text-transform:uppercase;}
+
+.checklist{counter-reset:item;list-style:none;padding:0;}
+.checklist li{padding:8pt 0 8pt 30pt;border-bottom:1px solid var(--rule);position:relative;counter-increment:item;break-inside:avoid;}
+.checklist li:before{content:counter(item,decimal-leading-zero);font-family:"JetBrains Mono";font-size:9pt;color:var(--emerald);position:absolute;left:0;top:9pt;letter-spacing:1pt;}
+.checklist li b{font-family:"Cormorant";font-weight:600;font-size:13pt;display:block;color:var(--onyx);}
+.checklist li span{display:block;font-size:9pt;color:var(--muted);margin-top:2pt;line-height:1.5;}
+
+.copy-block{background:var(--paper);border:1px dashed var(--gold);padding:12pt 14pt;margin:10pt 0;font-family:"JetBrains Mono";font-size:8.5pt;line-height:1.65;border-radius:3px;color:#1a1714;}
+.copy-block .lab{font-family:"JetBrains Mono";font-size:7pt;letter-spacing:1.5pt;color:var(--gold);text-transform:uppercase;margin-bottom:6pt;display:block;}
+.copy-block .ar{font-family:"Amiri";font-weight:700;color:var(--gold);}
+
+.mockcard{background:var(--onyx);color:var(--limestone);border-radius:4px;padding:14pt;height:90pt;display:flex;flex-direction:column;justify-content:space-between;}
+.mockcard .wm{font-family:"Cinzel";font-weight:600;font-size:13pt;letter-spacing:2.5pt;color:var(--gold-lt);text-transform:uppercase;}
+.mockcard .mono{font-family:"JetBrains Mono";font-size:7pt;letter-spacing:1.5pt;color:#9a8a6a;text-transform:uppercase;}
+.mockcard .name{font-family:"Cormorant";font-style:italic;font-size:12pt;color:var(--limestone);}
+
+.ig{height:115pt;padding:12pt;border-radius:3px;display:flex;flex-direction:column;justify-content:space-between;}
+.ig.onyx{background:var(--onyx);color:var(--limestone);}
+.ig.stone{background:var(--limestone);color:var(--onyx);}
+.ig .head{font-family:"JetBrains Mono";font-size:7pt;letter-spacing:1.5pt;text-transform:uppercase;color:var(--gold);}
+.ig.onyx .head{color:var(--gold-lt);}
+.ig .big{font-family:"Cormorant";font-weight:600;font-size:16pt;line-height:1.1;}
+
+.hoard{background:var(--onyx);color:var(--limestone);border-radius:5px;padding:18pt;height:135pt;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;}
+.hoard .big{font-family:"Cormorant";font-weight:600;font-size:26pt;line-height:1.04;}
+.hoard .ar{font-family:"Amiri";font-size:18pt;color:var(--gold-lt);position:absolute;top:14pt;right:18pt;}
+
+.foot{margin-top:14pt;padding-top:8pt;border-top:1px solid var(--rule);font-size:8.5pt;color:var(--muted);}
+
+/* TOC */
+.toc-row{display:flex;gap:14pt;padding:9pt 0;border-bottom:1px solid var(--rule);align-items:baseline;}
+.toc-row .no{font-family:"Cormorant";font-weight:600;font-size:17pt;color:var(--gold);width:32pt;}
+.toc-row .ti{font-family:"Inter";font-weight:640;font-size:11pt;flex:1;}
+.toc-row .de{font-family:"Inter";font-size:8.5pt;color:var(--muted);flex:2;text-align:right;}
+</style></head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="ey">Brand book · master edition · for the founder</div>
+  <div class="markblock">
+    <div class="wm">AYKON<b>VENTURES</b></div>
+    <div class="goldrule"></div>
+    <div class="ar">ايكون فينتشرز</div>
+    <div class="doctitle">One book. One system. One house.</div>
+  </div>
+  <div class="meta">
+    L.L.C-FZ · Meydan Free Zone · Dubai<br>
+    Edition 02 · 29 May 2026
+  </div>
+  <div class="corner">
+    Reality · positioning · personas<br>
+    Voice · architecture · colour<br>
+    Type · visual language · wordmark<br>
+    Applications · punch list
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="sec">
+  <div class="k">Contents</div>
+  <h1 class="s">What's inside.</h1>
+  <div class="dek">The complete brand system, organised as a contract: strategy first, identity next, applications last, punch list at the end.</div>
+  <div class="toc-row"><div class="no">01</div><div class="ti">Read this first</div><div class="de">How to use this book</div></div>
+  <div class="toc-row"><div class="no">02</div><div class="ti">The reality</div><div class="de">Who Aykon actually is — grounded in the trade licence</div></div>
+  <div class="toc-row"><div class="no">03</div><div class="ti">The landscape</div><div class="de">Competitors · cultural context · five white-space gaps</div></div>
+  <div class="toc-row"><div class="no">04</div><div class="ti">The foundation</div><div class="de">Purpose · vision · mission · values</div></div>
+  <div class="toc-row"><div class="no">05</div><div class="ti">Positioning &amp; archetype</div><div class="de">Sage + Sovereign · "won't push what we wouldn't buy"</div></div>
+  <div class="toc-row"><div class="no">06</div><div class="ti">Promise · SMP · tagline ladder</div><div class="de">Skin-in-game as the contract. Four taglines, kept live</div></div>
+  <div class="toc-row"><div class="no">07</div><div class="ti">Audience &amp; personas</div><div class="de">Faisal · Aanya · Layla · the Family Office</div></div>
+  <div class="toc-row"><div class="no">08</div><div class="ti">Voice &amp; verbal identity</div><div class="de">Five principles · tone spectrum · sample copy · banned words</div></div>
+  <div class="toc-row"><div class="no">09</div><div class="ti">Brand architecture</div><div class="de">Aykon Ventures + Aykon Jewels + Aykon Spaces</div></div>
+  <div class="toc-row"><div class="no">10</div><div class="ti">Colour system</div><div class="de">Limestone · Onyx · Emerald · Gold — 70-22-5-3</div></div>
+  <div class="toc-row"><div class="no">11</div><div class="ti">Typography</div><div class="de">Cinzel · Cormorant · Inter · Amiri · JetBrains Mono</div></div>
+  <div class="toc-row"><div class="no">12</div><div class="ti">Visual language</div><div class="de">Photography · iconography · layout · motion</div></div>
+  <div class="toc-row"><div class="no">13</div><div class="ti">Wordmark direction &amp; designer brief</div><div class="de">External commission · references · paste-ready brief</div></div>
+  <div class="toc-row"><div class="no">14</div><div class="ti">Brand applications</div><div class="de">Card · social · deal one-pager · hoarding</div></div>
+  <div class="toc-row"><div class="no">15</div><div class="ti">Governance</div><div class="de">What never ships · the open decisions</div></div>
+  <div class="toc-row"><div class="no">16</div><div class="ti">Punch list — what's next</div><div class="de">Founder calls + parallel work tracks</div></div>
+  <div class="toc-row"><div class="no">17</div><div class="ti">Asset index · appendix</div><div class="de">Colour HEX · type files · file paths · governance · for the developer</div></div>
+</div>
+
+<!-- 01 READ FIRST -->
+<div class="sec">
+  <div class="k">01 · Read this first</div>
+  <h1 class="s">A book is a contract.</h1>
+  <div class="dek">This document is the brand's source of truth. When a brief and the book disagree, the book wins. When you need the reasoning, the section reasoning holds the trail.</div>
+
+  <p>Aykon Ventures' brand exists to answer one question for every future hire, partner, photographer, copywriter, designer, and investor: <em>"is this on-brand?"</em> The book is the answer. It is short by design — every line was chosen against an alternative that was considered and rejected.</p>
+
+  <p>Three structural notes for the reader.</p>
+  <ul class="reasoned">
+    <li><b>Strategy before identity.</b> Sections 01–07 are the contract: who Aykon is, what it stands for, who it talks to. Sections 08–13 are the identity that delivers the contract. The visual cannot exist without the strategy — never reverse the order.</li>
+    <li><b>Open decisions are flagged with <span class="tag open">OPEN</span>.</b> Two remain at this edition — wordmark final cut (going to external type designer) and tagline (four kept live for A/B testing). The architecture vertical name (Aykon Spaces) and the locked direction (Route C · Private Institution) are decided. Sub-brand identities for Aykon Jewels and Aykon Spaces ship in their own mini-identity documents.</li>
+    <li><b>Reality over aspiration.</b> Every claim is grounded in the trade licence — Aykon is a marketing &amp; holding house with a small own-account investment activity, not a developer or a brokerage. The brand is built around that, not over it.</li>
+  </ul>
+  <div class="callout dark">Two governance rules that override everything else: <strong>(1)</strong> never overclaim — we are not a fund, not a developer; <strong>(2)</strong> the brand must not visually or verbally resemble DAMAC's Aykon City in any form.</div>
+</div>
+
+<!-- 02 REALITY -->
+<div class="sec">
+  <div class="k">02 · The reality</div>
+  <h1 class="s">Who Aykon actually is.</h1>
+  <div class="dek">Grounded in the trade licence — Meydan Free Zone LLC, three licensed activities, founded by Prachi.</div>
+
+  <div class="grid2">
+    <div class="cell"><div class="lab">Legal entity</div><div class="big">Aykon ventures L.L.C-FZ</div><p>Meydan Free Zone limited liability company. Formation 2645134. Issued 8 Feb 2026, expires 7 Feb 2027. Registered address: Meydan Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai.</p></div>
+    <div class="cell"><div class="lab">Managed by</div><div class="big">Prachi Vishesh Manghnani</div><p>Sole manager on the licence. The founder fronts the brand — quietly, with a point of view, with capital and time on the line.</p></div>
+    <div class="cell"><div class="lab">Activity 1 · 6202.99</div><div class="big">Marketing Services Via Social Media</div><p>The core engine. Content, paid social, founder-led narrative, partner campaigns.</p></div>
+    <div class="cell"><div class="lab">Activity 2 · 6499.02</div><div class="big">Own-account investment (VC / club style)</div><p>Small stakes Aykon puts in itself — the proof of belief. Not a fund. No third-party AUM. No regulated syndication.</p></div>
+    <div class="cell"><div class="lab">Activity 3 · 7320.96</div><div class="big">Marketing Management</div><p>Strategy, brand, growth advisory. The senior-table layer above the social engine.</p></div>
+    <div class="cell"><div class="lab">Execution partner layer</div><div class="big">RERA-certified vehicles</div><p>Every real-estate transaction is executed through a licensed RERA partner. Aykon markets and aligns; the partner transacts.</p></div>
+  </div>
+  <div class="callout">In one line: <strong>Aykon is the Dubai marketing house that puts its name (and a little of its money) on what it pushes — and lets a RERA partner do the regulated deal.</strong></div>
+</div>
+
+<!-- 03 LANDSCAPE -->
+<div class="sec">
+  <div class="k">03 · The landscape</div>
+  <h1 class="s">Who already owns what.</h1>
+  <div class="dek">The Dubai brand field, mapped. Five white-space gaps that combine to define Aykon's lane.</div>
+
+  <h2>Developers · the civic incumbents</h2>
+  <p><strong>Emaar</strong> owns master-planned permanence — Marina, Downtown, Hills. Listed on DFM, civic-scale, institutional. <strong>DAMAC</strong> owns branded luxury — Versace, Cavalli, de GRISOGONO towers, and the "Aykon City" landmark in Business Bay (which forces our naming discipline). <strong>Binghatti</strong> is the disruptor, merging real-estate with automotive, jewellery and lifestyle via licensing partnerships. <strong>Sobha</strong> owns craftsmanship and backward-integration. <strong>Implication:</strong> developers own scale and inventory. Aykon competes with none of them; it markets in the same city under a different category.</p>
+
+  <h2>Brokerages · the transactional tier</h2>
+  <p>Betterhomes, Allsopp &amp; Allsopp, haus &amp; haus, fäm Properties. Agent-led, listings-coded, sell-side. <strong>Implication:</strong> Aykon must avoid every brokerage tell — agent grids, "JUST SOLD," portal aesthetics. Those codes say "we move stock," which contradicts "we back what we sell."</p>
+
+  <h2>Holding / family-office tier</h2>
+  <p><strong>Dubai Holding</strong> and the invisible private-capital layer. Diversified, patient, almost entirely unbranded to the public. <strong>Implication:</strong> Aykon borrows posture (taste, patience, conviction) but inverts the invisibility — it is a small, fronted, followable marketing house.</p>
+
+  <h2>The five gaps Aykon fills</h2>
+  <ul class="reasoned">
+    <li><b>The fronted marketing house.</b> Brokers are agent-led, developers are corporate, family offices are invisible. A founder-fronted, taste-led marketing house with skin in the game has no occupant.</li>
+    <li><b>"Skin in the game" as the brand promise.</b> Brokers earn whether you win or lose; syndicators earn on fees. Nobody leads with "our name and a small stake are on what we push."</li>
+    <li><b>Taste as the through-line.</b> Marketing + RE + jewellery + architecture only cohere as one house under a single curatorial point of view.</li>
+    <li><b>Editorial restraint in a loud category.</b> Every developer is render-loud; every broker is listings-loud. The Aesop/Sotheby's quiet register has no occupant in Dubai RE marketing.</li>
+    <li><b>Bilingual native premium.</b> Most Dubai brands treat Arabic as decoration. A house claiming a stake in this city must read as an owner, not a guest — Anghami's bilingual rigour is the local reference.</li>
+  </ul>
+  <div class="callout dark">Combined, the five gaps describe one brand: <strong>a fronted Dubai marketing house with skin in the game, taste across hard assets, editorial restraint, and bilingual rigour.</strong> That is the brief for Sections 04–07.</div>
+</div>
+
+<!-- 04 FOUNDATION — PURPOSE / VISION / MISSION / VALUES -->
+<div class="sec">
+  <div class="k">04 · The foundation</div>
+  <h1 class="s">Purpose. Vision. Mission. Values.</h1>
+  <div class="dek">The four statements every Aykon decision is tested against. Read this aloud at any hire, any partner meeting, any creative brief. If a choice fails any of the four, it goes back.</div>
+
+  <h2>Purpose · why Aykon exists</h2>
+  <p class="statement">To turn conviction about Dubai into things you can stand inside, beside, or stake on — starting with our own.</p>
+  <p>The product is marketing. The investment-club wrapper is a sliver of capital. The <em>purpose</em> is something larger: to make belief in this city tangible — in a building bought, a stone set, a campaign run, a name on it. Conviction without a stake is a tweet. Conviction with a stake is a brand.</p>
+
+  <h3>Why not the obvious alternatives</h3>
+  <ul class="reasoned">
+    <li><b>"To help people invest in Dubai." Rejected.</b> Every brokerage and syndicator says it. Frames Aykon as a service, not a principal-aligned operator.</li>
+    <li><b>"To build Dubai's future." Rejected.</b> Reserved for developers like Emaar at civic scale. Overclaims for a marketing house.</li>
+    <li><b>"Conviction made tangible." Won.</b> Owns the bridge between belief and asset. Scales across every vertical — a building, a piece of jewellery, a designed space are all "conviction made tangible."</li>
+  </ul>
+
+  <h2>Vision · the 10-year horizon</h2>
+  <p class="statement">"Aykon backed it" is the credential a Dubai investor recognises. And one day, our own name is on the city.</p>
+  <p>The win condition is a status shift. In year one, Aykon is a small marketing house with skin in the game. In year ten, "Aykon backed it" is a phrase — a credential a partner sees on a deal memo and lowers their shoulders. The longest arc is that Aykon eventually <em>signs its own buildings</em>. Both ends of that arc are in the brand from day one.</p>
+
+  <h2>Mission · what we do every day</h2>
+  <p class="statement">We market what we'd back. We back what we market. RERA partners do the regulated deal.</p>
+  <p>Three deliberate parts of one sentence:</p>
+  <ul class="reasoned">
+    <li><b>"Market what we'd back."</b> Editorial discipline before campaign discipline. Nothing leaves the studio that we wouldn't put our own small stake against.</li>
+    <li><b>"Back what we market."</b> The skin-in-game promise as operational truth. A small co-invest where it's structurally possible; our name on the line everywhere it's possible.</li>
+    <li><b>"RERA partners do the regulated deal."</b> Honesty about the licensing reality. Aykon doesn't transact; the named partner does. That gap is stated, never hidden.</li>
+  </ul>
+
+  <h2>Values · the five non-negotiables</h2>
+  <p>Most value lists name virtues every company claims. Real values come at a cost. Each below is something Aykon will be asked to compromise, and refuse.</p>
+
+  <h3>01 · Skin in first</h3>
+  <p>We don't market what we wouldn't own a piece of. <strong>The cost:</strong> we move slower than fee-driven marketing shops that risk none of their own money. We accept this, because alignment is the entire brand.</p>
+
+  <h3>02 · Hard assets over hype</h3>
+  <p>We back things that exist — land, stone, metal, design. <strong>The cost:</strong> we pass on the hot, liquid, narrative-driven plays that generate buzz. We accept this, because permanence compounds and hype doesn't.</p>
+
+  <h3>03 · Taste is underwritten</h3>
+  <p>One quality filter across property, jewellery and architecture. <strong>The cost:</strong> we reject profitable but ugly deals. We accept this, because taste is the only thing that unifies three verticals into one house.</p>
+
+  <h3>04 · Bilingual, native</h3>
+  <p>Arabic and English from sketch one. <strong>The cost:</strong> design and copy take longer and cost more; translation is banned. We accept this, because a house claiming a stake in an Arab city must speak as an owner, not a guest.</p>
+
+  <h3>05 · Proof over promise</h3>
+  <p>We show the asset, the partner, the stake. <strong>The cost:</strong> we forfeit the easy marketing language ("trusted," "leading," "premium") the whole category leans on. We accept this, because in a city full of pitches, proof is the only credential left.</p>
+
+  <div class="callout dark">These four statements precede every other decision in the book. Positioning, archetype, voice, identity — all of it tests against the foundation. When a brief and the book disagree, the book wins; when the book and the foundation disagree, the foundation wins.</div>
+</div>
+
+<!-- 05 POSITIONING + ARCHETYPE -->
+<div class="sec">
+  <div class="k">05 · Positioning &amp; archetype</div>
+  <h1 class="s">The corrected position.</h1>
+  <div class="dek">Aykon is the aligned voice in a category full of unaligned ones. Sage curates; Sovereign holds standards.</div>
+
+  <h2>Formal positioning</h2>
+  <p class="statement">For Dubai investors and buyers who are tired of being sold to by brokers and developers with no skin in the game, Aykon Ventures is the marketing &amp; holding house that markets only what it would back itself — and partners with RERA-certified vehicles to execute — because in a city full of pitches, alignment is the only credential that scales.</p>
+
+  <h2>Plain English</h2>
+  <p class="statement">Aykon is the Dubai marketing house that won't push what it wouldn't buy.</p>
+
+  <h2>Archetype · Sage primary + Sovereign modifier</h2>
+  <p>The <strong>Sage</strong> archetype owns taste, judgement and curation — "we know good when we see it, and we only put our name on the good." It fits a marketing-and-curation house far better than the Sovereign-primary frame of Vol 01, which overstated capital scale. The <strong>Sovereign</strong> modifier holds the standards and the posture — calm, confident, set apart. Together: <em>"we judge, then we vouch."</em></p>
+
+  <h3>Rejected with reasoning</h3>
+  <ul class="reasoned">
+    <li><b>Magician (Vol 00).</b> Parkar's archetype — make it disappear. Aykon is the opposite: make alignment visible. Borrowing it would be a category error.</li>
+    <li><b>Sovereign-primary (Vol 01).</b> Overstates capital scale for a marketing house with a small own-account stake. Demoted to modifier.</li>
+    <li><b>Caregiver.</b> Too soft for a marketing house; cedes the principal authority that is the point.</li>
+    <li><b>Hero.</b> "We'll overcome the market for you." Too earnest; reads as a fund chasing alpha.</li>
+  </ul>
+</div>
+
+<!-- 06 PROMISE + TAGLINE -->
+<div class="sec">
+  <div class="k">06 · Promise · SMP · tagline ladder</div>
+  <h1 class="s">Skin in the game, said four ways.</h1>
+  <div class="dek">The SMP is the platform idea. The promise is the contract. The tagline ladder is the live mark — kept live for A/B testing per founder direction.</div>
+
+  <h2>Single-minded proposition</h2>
+  <p class="statement">We back what we sell.</p>
+  <p>Four words that resolve the whole brand: "back" = a small stake and reputation on the line; "sell" = the marketing work. Bilingually translatable, scales across every vertical (we back the building, the gemstone, the design), and the one claim brokers and developers structurally cannot copy.</p>
+
+  <h2>Brand promise · the contractual line</h2>
+  <p class="statement">Name on it. Stake in it.</p>
+  <p>The two proofs of alignment. <em>Name</em> = reputation; <em>Stake</em> = a small co-invest where it's possible. Used in deal memos and partner sheets — the line that explains why marketing means more from Aykon than from anyone else.</p>
+
+  <h2>Tagline ladder · all four live for A/B testing</h2>
+  <p>Per founder direction, no single tagline is locked at the platform layer. Each below owns a different surface (short → relational → declarative → quiet). Real-world performance picks the winner.</p>
+  <ul class="reasoned">
+    <li><b>"Skin in." </b>Two-word brand close. Sharpest. Best for ad ends, OOH, social sign-offs.</li>
+    <li><b>"Same side of the table." </b>The relational frame. Best for partner conversations and editorial — explicitly anti-broker.</li>
+    <li><b>"We back what we sell." </b>The SMP doubling as tagline. Most declarative; works as website hero.</li>
+    <li><b>"Name on it." </b>Quiet confidence. Reputation as the alignment. Scales under any visual.</li>
+  </ul>
+
+  <h3>Killed, with reasoning (paper trail)</h3>
+  <ul class="plain">
+    <li><b>"Out to buy Dubai." </b>Overclaims capital. Killed.</li>
+    <li><b>"Our money is in first." </b>Untrue at this scale. Replaced.</li>
+    <li><b>"Invest beside us." </b>Implies a syndication offer Aykon isn't licensed to make. Killed.</li>
+    <li><b>"A stake in the city." </b>Beautiful but vague; loses the skin-in-game specificity.</li>
+  </ul>
+</div>
+
+<!-- 07 PERSONAS -->
+<div class="sec">
+  <div class="k">07 · Audience &amp; personas</div>
+  <h1 class="s">The four humans Aykon designs for.</h1>
+  <div class="dek">Not segments — humans. Each tested by reading copy aloud as them. If it sounds like a pitch, it's wrong.</div>
+
+  <div class="grid2">
+    <div class="cell"><div class="lab">Primary · Faisal</div><div class="big">The conviction investor</div><p>44. GCC-based, sold or scaled a business, now allocates. Owns Dubai property already, bored of brokers. Wants someone with a thesis <em>and</em> skin in the game. <em>"I don't need another listing. I need someone who's in it with me."</em></p></div>
+    <div class="cell"><div class="lab">Secondary · Aanya</div><div class="big">The diaspora believer</div><p>38. London/Mumbai, high earner, watching Dubai from afar. Believes in the city, has no time or local edge. Invests beside someone she trusts before flying in to view units. <em>"I want exposure to Dubai without becoming a part-time landlord."</em></p></div>
+    <div class="cell"><div class="lab">Secondary · Layla</div><div class="big">The taste buyer</div><p>41. Buys the Jewels pieces and commissions the architecture vertical. Status through design, not weight. Her purchase is how she meets the house — and how she later joins the co-invest table. <em>"I can tell when something was made by someone with a point of view."</em></p></div>
+    <div class="cell"><div class="lab">Tertiary · The Family Office</div><div class="big">The aligned co-investor</div><p>Writes the larger cheque. Diligence-driven, allergic to hype, rewards alignment above all. Comes in only once "our name and stake are demonstrably on it." The validation tier, not the volume tier.</p></div>
+  </div>
+
+  <h2>Anti-personas · who Aykon is <em>not</em> for</h2>
+  <p>The flipper chasing a six-month margin · the bargain-hunter who leads with "best price" · the guaranteed-ROI punter · the passive yield-only buyer who wants no relationship and no brand. Each is profitable in the short run and corrosive to the house. Optimising for any of them turns Aykon into a broker.</p>
+
+  <h2>Primary persona · deep profile · Faisal</h2>
+  <p>If the brand lands with Faisal, it lands. He is the centre of the strategy.</p>
+  <div class="grid2">
+    <div class="cell"><div class="lab">What he believes</div><p>Dubai is a generational bet and he's under-allocated. But he won't buy retail off a render again, and he won't hand money to a broker whose incentive is the transaction, not the outcome.</p></div>
+    <div class="cell"><div class="lab">His friction list</div><p>Brokers who vanish post-sale · "off-plan" that's really speculation · no one with their own capital at risk · the inability to tell taste from marketing · being treated as a lead.</p></div>
+  </div>
+
+  <h3>Journey — six stages</h3>
+  <table>
+    <tr><th>Stage</th><th>What he does</th><th>What the brand must do</th></tr>
+    <tr><td class="on">01 · Notice</td><td>Sees an Aykon thesis post — a district call, a deal Aykon is backing.</td><td>Lead with conviction, not inventory. No CTA.</td></tr>
+    <tr><td class="on">02 · Weigh</td><td>Checks whether Aykon actually has its name on what it talks about.</td><td>Show the position. "Name on it. Stake in it." — provable.</td></tr>
+    <tr><td class="on">03 · Approach</td><td>Reaches out quietly, on his terms. Hates forms.</td><td>A private door, not a lead funnel. Human, named.</td></tr>
+    <tr><td class="on">04 · Diligence</td><td>Wants the thesis, the terms, the alignment, the RERA partner in writing.</td><td>Editorial clarity. Proof over adjectives. Disclose the partner.</td></tr>
+    <tr><td class="on">05 · Transact via RERA partner</td><td>Closes through the licensed vehicle Aykon partners with.</td><td>Hand off cleanly. Stay on the same side of the table through close.</td></tr>
+    <tr><td class="on">06 · Refer</td><td>Brings his network in — the referral economy.</td><td>Make him look discerning for being early.</td></tr>
+  </table>
+</div>
+
+<!-- 08 VOICE -->
+<div class="sec">
+  <div class="k">08 · Voice &amp; verbal identity</div>
+  <h1 class="s">Voice is the cheapest way to be expensive.</h1>
+  <div class="dek">Five principles. One tone position on five axes. Off-brand vs on-brand sample copy. The banned list.</div>
+
+  <h2>The five voice principles</h2>
+  <div class="grid2">
+    <div class="cell"><div class="lab">01</div><div class="big">Certain, never salesy</div><p>Declarative, no urgency, no exclamation. The premium signal is restraint.</p></div>
+    <div class="cell"><div class="lab">02</div><div class="big">Specific, never spreadsheet-y</div><p>The address, the material, the year. Never quote a guaranteed yield.</p></div>
+    <div class="cell"><div class="lab">03</div><div class="big">Plain about alignment</div><p>We say where our name is, where our small stake is, who the RERA partner is. Transparency is the moat.</p></div>
+    <div class="cell"><div class="lab">04</div><div class="big">Bilingual, never translated</div><p>Arabic and English written in parallel by writers fluent in both.</p></div>
+  </div>
+  <p><b>05 · Editorial, never listings-coded.</b> Reads like a private bank's letter, not a property portal. No skyline hashtags. No "DM for price."</p>
+
+  <h2>Tone-of-voice spectrum</h2>
+  <table>
+    <tr><th>Axis</th><th>Left</th><th>Aykon sits</th><th>Right</th><th>Why</th></tr>
+    <tr><td class="on">Formality</td><td class="off">Casual</td><td class="on">Composed</td><td class="off">Formal</td><td>Adult, regional, never stiff.</td></tr>
+    <tr><td class="on">Energy</td><td class="off">Eager</td><td class="on">Unhurried</td><td class="off">Detached</td><td>Eager is the broker tell.</td></tr>
+    <tr><td class="on">Warmth</td><td class="off">Effusive</td><td class="on">Warm to partners</td><td class="off">Cold</td><td>Sage authority, warmed at the human moments.</td></tr>
+    <tr><td class="on">Certainty</td><td class="off">Hedging</td><td class="on">Declarative</td><td class="off">Dogmatic</td><td>Conviction is the product.</td></tr>
+    <tr><td class="on">Disclosure</td><td class="off">Vague</td><td class="on">Plain about alignment</td><td class="off">Oversharing</td><td>Specific on stake and partner; never on guarantees.</td></tr>
+  </table>
+
+  <h2>Sample copy · off-brand vs on-brand</h2>
+  <table>
+    <tr><th>Context</th><th>Off-brand</th><th>On-brand</th></tr>
+    <tr><td class="on">Instagram thesis</td><td class="off">🔥 HOT DEAL in Business Bay! DM for price 📲</td><td>We're backing a floor in Business Bay this month. Here's the thesis — and the RERA partner.</td></tr>
+    <tr><td class="on">Deal announcement</td><td class="off">Aykon is proud to announce an exciting new acquisition!</td><td>Our name is on a floor in DIFC. Our stake is in. The RERA partner is named below.</td></tr>
+    <tr><td class="on">Partner one-pager</td><td class="off">Guaranteed 15% ROI! Don't miss this opportunity.</td><td>We market this through Aykon. The transaction is executed through [RERA partner]. Our small stake is in.</td></tr>
+    <tr><td class="on">Jewels</td><td class="off">Stunning 22k gold set — best price in Dubai!</td><td>Designed in-house. Set by hand. Worth more for the eye than the gram.</td></tr>
+    <tr><td class="on">Architecture</td><td class="off">We create stunning luxury dream spaces!</td><td>We design what we'd put our own name on. Some of it, we will.</td></tr>
+    <tr><td class="on">When something slips</td><td class="off">We sincerely apologise for any inconvenience!</td><td>The deal didn't clear diligence. We walked. Your name was never on it.</td></tr>
+  </table>
+
+  <h2>Banned words &amp; patterns</h2>
+  <div class="grid2">
+    <div class="cell"><div class="lab">Banned words</div><p>luxury · premium · elite · exclusive · trusted · leading · partner (as filler) · guaranteed · ROI-as-hook · don't-miss · dream home · fund · syndicate · AUM · portfolio company</p></div>
+    <div class="cell"><div class="lab">Banned patterns</div><p>Exclamation marks · emoji in brand copy · Title Case Headlines · skyline hashtags · "DM for price" · three-adjective stacks · rhetorical questions ("Tired of renting?") · urgency manufacturing.</p></div>
+  </div>
+
+  <h2>Sub-brand voice modulation</h2>
+  <ul class="reasoned">
+    <li><b>Aykon Ventures (parent).</b> The voice above — Sage + Sovereign, plain about alignment.</li>
+    <li><b>Aykon Jewels.</b> Quieter, more sensory. The hand, the stone, the design. Never souk-coded, never per-gram.</li>
+    <li><b>Architecture vertical (name open).</b> Monograph register — spatial, slow, considered. Lets the work speak.</li>
+  </ul>
+</div>
+
+<!-- 09 ARCHITECTURE -->
+<div class="sec">
+  <div class="k">09 · Brand architecture</div>
+  <h1 class="s">One house. Three names. One open.</h1>
+  <div class="dek">The parent runs the marketing and holds the small stakes. Two sub-brands carry the taste verticals. Estates is collapsed into the parent. Developments is paused until there's a building.</div>
+
+  <div class="grid3">
+    <div class="cell" style="border:1px solid var(--rule);border-radius:3pt;padding:11pt">
+      <div class="lab" style="color:var(--gold)">Parent · the house</div>
+      <div class="big">Aykon Ventures</div>
+      <p>The marketing &amp; holding company. Runs all real-estate marketing under its own name. Holds the small own-account investment stakes. Brand voice and cap-table sit here.</p>
+      <p style="margin-top:6pt"><span class="tag locked">LOCKED</span></p>
+    </div>
+    <div class="cell" style="border:1px solid var(--rule);border-radius:3pt;padding:11pt">
+      <div class="lab" style="color:var(--emerald)">Vertical 01 · jewellery</div>
+      <div class="big" style="font-style:italic">Aykon Jewels</div>
+      <p>Fine jewellery — design and provenance, not gold by weight. Emerald is the natural accent (emerald + gold is the jewellery pairing).</p>
+      <p style="margin-top:6pt"><span class="tag locked">LOCKED</span></p>
+    </div>
+    <div class="cell" style="border:1px solid var(--rule);border-radius:3pt;padding:11pt">
+      <div class="lab" style="color:var(--emerald)">Vertical 02 · architecture</div>
+      <div class="big">Aykon Spaces</div>
+      <p>Architecture, interiors, and the future development arm when ground breaks. The founder's pick, locked.</p>
+      <p style="margin-top:6pt"><span class="tag locked">LOCKED</span></p>
+    </div>
+  </div>
+
+  <h2>Architecture name · why Spaces, the alternatives on file</h2>
+  <ul class="reasoned">
+    <li><b>Aykon Spaces · LOCKED.</b> The founder's pick. Broad, approachable, immediately understandable to a non-design audience. Scales from interiors to architecture to the future development arm under a single noun. Final.</li>
+    <li><b>Aykon Bureau · alternate on file.</b> The strategist's recommendation. "Bureau" is what real architecture &amp; design practices use about themselves (Brussels/Antwerp/Paris heritage). Documented for the record in case a future repositioning toward design-house specificity becomes desirable.</li>
+    <li><b>Aykon Studio · alternate on file.</b> Architect-house word. More common, slightly populist. Documented as the second alternate.</li>
+    <li><b>Aykon Spaces.</b> Founder's original pick. Broadest, most approachable, but the most generic — "Spaces" is WeWork-adjacent and leans real-estate-marketing more than design practice.</li>
+  </ul>
+
+  <h2>Cut from earlier editions</h2>
+  <ul class="plain">
+    <li><b>Aykon Estates.</b> Collapsed into the parent. Aykon Ventures <em>is</em> the real-estate marketing arm.</li>
+    <li><b>Aykon Developments.</b> Paused. Premature without a building. Reactivated as a sub-brand only when ground is broken.</li>
+    <li><b>Maison / Atelier / Form / Build.</b> Rejected with reasoning earlier; founder's English-word direction holds.</li>
+  </ul>
+</div>
+
+<!-- 10 COLOUR -->
+<div class="sec">
+  <div class="k">10 · Colour system</div>
+  <h1 class="s">Emerald + gold on Dubai stone.</h1>
+  <div class="dek">A jewellery house's palette. Distinct from DAMAC's gold-only Aykon City. Matte, never glossy. Disciplined ratio.</div>
+
+  <div class="grid4">
+    <div><div class="bigsw" style="background:#EDE7DB;color:#14110E;border:1px solid var(--rule)"><div class="nm">Limestone</div><div class="hx">#EDE7DB</div></div><p style="font-size:8.5pt;color:var(--onyx-soft)">The Dubai stone. The world. 70% of every surface.</p></div>
+    <div><div class="bigsw" style="background:#14110E;color:#EDE7DB"><div class="nm">Onyx</div><div class="hx">#14110E</div></div><p style="font-size:8.5pt;color:var(--onyx-soft)">Ink, authority, dark-mode canvas. 22%.</p></div>
+    <div><div class="bigsw" style="background:#0E4A38;color:#EDE7DB"><div class="nm">Aykon Emerald</div><div class="hx">#0E4A38</div></div><p style="font-size:8.5pt;color:var(--onyx-soft)">The secondary signature. Replaces maroon. Jewellery-coded; gold's natural partner. 5%.</p></div>
+    <div><div class="bigsw" style="background:#9C7A3C;color:#FBF9F4"><div class="nm">Aykon Gold</div><div class="hx">#9C7A3C</div></div><p style="font-size:8.5pt;color:var(--onyx-soft)">Matte, architectural. Reserved for the wordmark/seal. 3%.</p></div>
+  </div>
+
+  <h3>The ratio · 70 – 22 – 5 – 3</h3>
+  <div class="ratio">
+    <div style="background:#EDE7DB;color:#14110E;flex:70">70% LIMESTONE</div>
+    <div style="background:#14110E;color:#EDE7DB;flex:22">22% ONYX</div>
+    <div style="background:#0E4A38;color:#EDE7DB;flex:5">5% EMERALD</div>
+    <div style="background:#9C7A3C;color:#FBF9F4;flex:3">3% GOLD</div>
+  </div>
+  <p>Gold appears almost only on the wordmark and the seal. Emerald is the everyday accent — rules, eyebrows, callouts, Jewels packaging, hero moments. Together they read as <em>jewellery-house</em>, not as <em>developer-with-gold-foil.</em></p>
+
+  <h2>Discipline rules</h2>
+  <ul class="reasoned">
+    <li><b>Matte gold, always.</b> Never glossy foil, never bevel, never gradient. The Vol 00 mistake.</li>
+    <li><b>Emerald never as wallpaper.</b> Used as accent — rules, type, small fills. Onyx and limestone hold the ground.</li>
+    <li><b>Dark mode.</b> Onyx becomes canvas; limestone becomes type; emerald shifts to Emerald Lt (#1F6A52) to hold contrast.</li>
+    <li><b>Dropped:</b> maroon/oxblood entirely; bronze folded into gold.</li>
+  </ul>
+</div>
+
+<!-- 11 TYPOGRAPHY -->
+<div class="sec">
+  <div class="k">11 · Typography</div>
+  <h1 class="s">Cinzel names. Cormorant writes. Inter reads.</h1>
+  <div class="dek">A Roman capital for the name, a high-contrast serif for the writing, a quiet grotesque for the reading, mono for the money, classical Naskh for Arabic.</div>
+
+  <div class="grid2">
+    <div class="cell"><div class="lab">Display · Cinzel</div><div style="font-family:Cinzel;font-weight:700;font-size:30pt;letter-spacing:4pt;text-transform:uppercase;color:var(--onyx)">AYKON</div><p>Roman inscriptional caps — the lettering of monuments, banks and maisons. Display caps, vertical names, section titles. <em>Not</em> the logo wordmark — that goes to external commission (Section 12).</p></div>
+    <div class="cell"><div class="lab">Editorial · Cormorant</div><div style="font-family:Cormorant;font-style:italic;font-weight:600;font-size:36pt;color:var(--onyx)">Aykon</div><p>High-contrast serif for headlines, deks, statements — sentence case. The voice of every document. Jewellery-house elegance.</p></div>
+    <div class="cell"><div class="lab">Body · Inter</div><div style="font-family:Inter;font-weight:600;font-size:28pt;color:var(--onyx)">Aykon</div><p>Quiet grotesque for body, UI, captions. It steps back so the serifs lead.</p></div>
+    <div class="cell"><div class="lab">Arabic · Amiri</div><div style="font-family:Amiri;font-weight:700;font-size:24pt;color:var(--onyx);direction:rtl">ايكون فينتشرز</div><p>Classical Naskh. Heritage register. The full company name in Arabic — designed alongside the Latin, never translated. Note: ايكون (no hamza/alif), per the trade licence.</p></div>
+  </div>
+
+  <h2>The scale · eight tiers</h2>
+  <div class="scale-row"><div class="lab">Wordmark · Cinzel caps</div><div style="font-family:Cinzel;font-size:22pt;font-weight:700;letter-spacing:4pt;text-transform:uppercase">Aykon Ventures</div></div>
+  <div class="scale-row"><div class="lab">Display · 60 / Cormorant</div><div style="font-family:Cormorant;font-size:28pt;font-weight:600">We back what we sell</div></div>
+  <div class="scale-row"><div class="lab">H1 · 40 / Cormorant</div><div style="font-family:Cormorant;font-size:22pt;font-weight:600">Name on it. Stake in it.</div></div>
+  <div class="scale-row"><div class="lab">H2 · 28 / Cormorant</div><div style="font-family:Cormorant;font-size:17pt;font-weight:600">A house, with skin in the game</div></div>
+  <div class="scale-row"><div class="lab">H3 · 14 / Inter</div><div style="font-family:Inter;font-size:12pt;font-weight:680">Section header — workhorse subhead</div></div>
+  <div class="scale-row"><div class="lab">Body · 14 / Inter</div><div style="font-family:Inter;font-size:10.5pt">The fourteen-pixel workhorse for most copy.</div></div>
+  <div class="scale-row"><div class="lab">Eyebrow · mono</div><div style="font-family:JetBrains Mono;font-size:8pt;letter-spacing:2pt;color:var(--emerald);text-transform:uppercase">AYKON JEWELS · NEW SERIES</div></div>
+  <div class="scale-row"><div class="lab">Data · mono</div><div style="font-family:JetBrains Mono;font-size:11pt">AED 4,200,000 · CO-INVEST 40%</div></div>
+</div>
+
+<!-- 12 VISUAL LANGUAGE -->
+<div class="sec">
+  <div class="k">12 · Visual language</div>
+  <h1 class="s">Land, stone, hands, detail.</h1>
+  <div class="dek">Never renders, never skylines, never agents grinning beside cars. Aykon photographs what it backs — and the craft inside it.</div>
+
+  <h2>Photography</h2>
+  <ul class="reasoned">
+    <li><b>Editorial &amp; architectural.</b> Tight crops, shallow DOF, natural light. The register of an architecture monograph, not a listing portal.</li>
+    <li><b>Material, hands, land, detail.</b> Stone, brass, raw concrete, gold in the rough. A jeweller setting a stone. A site at dawn. A façade detail. The asset, not the brochure.</li>
+    <li><b>No stock, no smiles, no skyline.</b> No isometric illustration. No drone-over-Marina. No agent-in-suit.</li>
+    <li><b>Warm and grounded grade.</b> Toward stone and bronze, never cool corporate blue.</li>
+  </ul>
+
+  <h2>Iconography &amp; the seal</h2>
+  <p>Monoline, 1.5pt strokes, square caps, drawn on a 24px grid. Single weight. Resting state onyx, active state emerald. The AV seal recurs as the corner mark on documents — the stamp of a house. Icons are sparse — Aykon is a house, not an app.</p>
+
+  <h2>Layout &amp; grid</h2>
+  <ul class="reasoned">
+    <li><b>12-column desktop, 4-column mobile.</b> Generous 64px margins. Whitespace is the wealth signal.</li>
+    <li><b>Asymmetry, deliberately.</b> Content sits 60/40, not centred — editorial, like a monograph spread.</li>
+    <li><b>One idea per surface.</b> A thesis, a deal, a piece. We never crowd.</li>
+  </ul>
+
+  <h2>Motion</h2>
+  <p>Slow, certain, weighted. 400ms ease-out for entries; nothing bounces, nothing springs. The serif arrives and stays. <em>The seal is the one flourish</em> — drawn on once at load, like a stamp pressing down. Used rarely. No skyline timelapses, no coin-flip gold shimmer, no counter-ticking AED-raised animations.</p>
+</div>
+
+<!-- 13 WORDMARK DIRECTION — LOCKED ROUTE C -->
+<div class="sec">
+  <div class="k">13 · Wordmark direction · LOCKED</div>
+  <h1 class="s">Private Institution.</h1>
+  <div class="dek">After exploration across three routes, the founder has locked Route C — Private Institution. Upright Roman caps editorial serif. Disciplined. Enduring. Routes A and B remain on file as documented alternates.</div>
+
+  <h2>The locked direction · Route C — Private Institution</h2>
+  <p>The wordmark is set in an upright high-contrast Roman caps editorial serif. Not italic, not calligraphic, not playful. The register is institutional — the type a private bank, a heritage law firm, or a sovereign asset manager would set their name in. Paired with the Arabic <strong>ايكون فينتشرز</strong> in classical Naskh, matched in weight and rhythm.</p>
+
+  <h3>Descriptors</h3>
+  <p class="statement" style="font-size:19pt">Institutional. Trusted. Disciplined. Enduring.</p>
+
+  <h2>Why this is the right call</h2>
+  <ul class="reasoned">
+    <li><b>The institutional wordmark counterweights the boutique reality.</b> Aykon is a small marketing &amp; holding house, fronted by a founder. The wordmark signals discipline and durability; the founder brings the warmth and conviction. <em>The tension is the brand.</em></li>
+    <li><b>Structurally clean of DAMAC.</b> DAMAC MAISON's master mark is italic sans-serif, forward-leaning. Route C is upright Roman serif. Different stroke logic, different weight feel, different posture — no visual collision.</li>
+    <li><b>Translates across every vertical.</b> The institutional serif scales from Aykon Ventures (parent) to Aykon Jewels (refined) to the architecture vertical (monograph) without bending.</li>
+    <li><b>Defensible at trademark stage.</b> Upright Roman caps editorial serif is a distinct visual class — easier to clear in registry searches than calligraphic italics or sans display.</li>
+  </ul>
+
+  <div class="callout dark">The exploration board shown to the founder lives in the brand archive. The locked Route C wordmark goes to a type designer for the final cut — refined custom Roman caps, one act of bespoke craft, bilingual Latin + Arabic. 2–3 week commission. Routes A and B are kept on file as documented alternates so the decision is defensible later.</div>
+</div>
+
+<!-- 13b · THE DECISION BOARD — VISUAL OPTIONS FOR FOUNDER -->
+<div class="sec">
+  <div class="k">13 · The decision board · three routes on the table</div>
+  <h1 class="s">Three routes. One picked.</h1>
+  <div class="dek">For the record and for the founder review. Three distinct routes were explored against the brand brief. After honest discussion, Route C — Private Institution was locked. Routes A and B remain on file as documented alternates.</div>
+
+  <h2>The three routes side by side</h2>
+  <img src="images/three_routes.png" style="width:100%;border-radius:4px;margin:6pt 0 10pt;break-inside:avoid;" alt="Three routes — Editorial Elegance, Dubai Heritage, Private Institution">
+
+  <div class="grid3" style="margin-top:10pt">
+    <div class="cell"><div class="lab">Route A · alternate</div><div class="big">Editorial Elegance</div><p>Canela / Mercury italic. Fashion house meets family office. Strongest if the brand later pivots toward Maison / Jewels.</p></div>
+    <div class="cell"><div class="lab">Route B · alternate</div><div class="big">Dubai Heritage</div><p>Caps with cultural rooting; AV monogram with Arabic-influenced curve. The AV-Arabic monogram is the most distinctive single element across the exploration.</p></div>
+    <div class="cell"><div class="lab" style="color:var(--gold)">Route C · LOCKED</div><div class="big">Private Institution</div><p>Upright Roman caps editorial serif. Institutional. Trusted. Disciplined. Enduring. The locked direction.</p></div>
+  </div>
+</div>
+
+<!-- 13c · PRIVATE INSTITUTION FULL REVEAL -->
+<div class="sec">
+  <div class="k">13 · Private Institution · full asset reveal</div>
+  <h1 class="s">The locked direction, visualised.</h1>
+  <div class="dek">The full Route C — Private Institution identity built around wordmark variant 11 (Editorial Cut). Wordmark, monogram, seal, business cards, colour palette, typography, application. Ready to hand to a production designer for refinement.</div>
+
+  <img src="images/private_institution_reveal.png" style="width:100%;border-radius:4px;margin:6pt 0;break-inside:avoid;" alt="Aykon Ventures — Private Institution full brand identity reveal">
+
+  <p style="font-size:9pt;color:var(--muted);margin-top:8pt;font-style:italic">Generated via AI exploration; the wordmark itself goes to a type designer for the final custom cut. The system, palette, typography hierarchy, monogram approach, and applications shown above are the locked production reference.</p>
+</div>
+
+<!-- 13d · ALTERNATES + BRIEF + RULES -->
+<div class="sec">
+  <div class="k">13 · Wordmark · alternates &amp; designer brief</div>
+  <h1 class="s">Two alternates, on file.</h1>
+  <div class="dek">Routes A and B were both strong contenders. They stay in the brand record as documented alternates — so the call is defensible later, and so a successor founder doesn't re-litigate it.</div>
+
+  <div class="grid2">
+    <div class="cell"><div class="lab">Alternate · Route A</div><div class="big">Editorial Elegance</div><p>High-contrast italic serif — Canela / Mercury Display Italic family. <em>"Fashion house meets family office."</em> Held in case the brand later pivots toward Maison / Jewels emphasis, and as the reserve register if the institutional posture feels too cold in market testing.</p></div>
+    <div class="cell"><div class="lab">Alternate · Route B</div><div class="big">Dubai Heritage</div><p>Caps with cultural rooting; AV monogram with Arabic-influenced curve. <em>"Authentic. Cultural. Dubai rooted."</em> Held in case the brand needs to emphasise regional belonging. The AV-with-Arabic-curve monogram is the single most distinctive element across the whole exploration — may be repurposed as a secondary seal even with Route C primary.</p></div>
+  </div>
+
+  <h2>The brief for the type designer's final cut</h2>
+  <div class="copy-block">
+    <span class="lab">Brief to hand the type designer</span>
+Design the final cut of the <strong>LOCKED Route C — Private Institution</strong> wordmark for <strong>AYKON VENTURES</strong> (Latin) and <strong>ايكون فينتشرز</strong> (Arabic).<br><br>
+
+<strong>The register.</strong> Upright Roman caps, editorial high-contrast serif. Discipline, heritage, durability. The wordmark of a private bank or a heritage maison — not a developer, not a brokerage.<br><br>
+
+<strong>Letterforms.</strong> Refined high-contrast Roman caps (thin-thick contrast) with classical inscriptional proportions. Subtle, restrained — <em>not</em> default Cinzel. One single act of bespoke craft: a custom counter on the A, a refined serif on the K, or a custom ligature where A meets V in the monogram. <em>One</em>, not three.<br><br>
+
+<strong>Bilingual discipline.</strong> Arabic ايكون فينتشرز co-equal, classical Naskh, drawn alongside the Latin from sketch one. Note: ايكون (no <em>hamza</em>/alif), per the trade licence.<br><br>
+
+<strong>Differentiation.</strong> DAMAC MAISON's mark is italic sans-serif, forward-leaning. Ours is upright Roman serif — structurally different posture.<br><br>
+
+<strong>Colour.</strong> Aykon Gold #9C7A3C on Limestone #EDE7DB (primary) and on Onyx #14110E (reversed). Matte only — never gloss-foil, never gradient bevel.<br><br>
+
+<strong>Deliver.</strong> Editable vector (SVG/AI), 2 weights (Regular + Bold), 3 colourways (Gold / Onyx / Reversed White). Lockups: primary stacked, horizontal, AV monogram, circular seal. Clear-space + minimum-size rules.
+  </div>
+
+  <h2>Must / Must not</h2>
+  <div class="grid2">
+    <div class="cell">
+      <h3>Must</h3>
+      <ul class="plain">
+        <li>Upright Roman caps, editorial high-contrast serif</li>
+        <li>One single act of bespoke craft (one custom counter, one ligature — <em>one</em>, not three)</li>
+        <li>Bilingual: Latin and Arabic ايكون فينتشرز designed in parallel</li>
+        <li>Hold up at 18mm wide and at 8m wide (signage)</li>
+        <li>Read as a private institution — bank, maison, heritage firm</li>
+        <li>Work in matte gold on Limestone, Onyx, and reversed white</li>
+      </ul>
+    </div>
+    <div class="cell">
+      <h3>Must not (any one = disqualifying)</h3>
+      <ul class="plain">
+        <li>Italic sans-serif (DAMAC MAISON's lane)</li>
+        <li>Forward-leaning, dynamic, or casual postures</li>
+        <li>Gold-foil gradient, 3D bevel, chrome effect</li>
+        <li>Diamond, quartz, or crystal motif</li>
+        <li>Skyline silhouette, falcon, crown, crest</li>
+        <li>Default Cinzel or any stock Google Font — must be a refined custom cut</li>
+        <li>Three flourishes — restraint is the brand</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Deliverables checklist</h2>
+  <ul class="plain">
+    <li><b>Vector:</b> Editable SVG + AI source; Latin + Arabic; outlined and live-text versions.</li>
+    <li><b>Weights:</b> Regular + Bold (two minimum).</li>
+    <li><b>Colourways:</b> Gold #9C7A3C · Onyx #14110E · Reversed white on Onyx.</li>
+    <li><b>Lockups:</b> Stacked (Latin over Arabic) + horizontal (Latin · Arabic with hairline divider).</li>
+    <li><b>Rules:</b> Clear-space spec, minimum sizes (full lockup 18mm / 140px; favicon 24px), don't list.</li>
+    <li><b>Format pack:</b> SVG, PNG (transparent, 3 sizes), PDF (print), ICO (favicon).</li>
+  </ul>
+</div>
+
+<!-- 12c · DAMAC DIFFERENTIATION -->
+<div class="sec">
+  <div class="k">13 · DAMAC differentiation, spelled out</div>
+  <h1 class="s">What Aykon Ventures is not.</h1>
+  <div class="dek">A hard rule. The brand defends this in court, in conversation, and on paper.</div>
+
+  <table>
+    <tr><th>Layer</th><th>DAMAC's Aykon City</th><th>Aykon Ventures</th></tr>
+    <tr><td class="on">Category</td><td class="off">Branded luxury residential tower (a place)</td><td class="on">Marketing &amp; holding house (an investor)</td></tr>
+    <tr><td class="on">Master mark</td><td class="off">"DAMAC MAISON" italic sans-serif, white + metallic gold, forward-leaning ~12°. "AYKON CITY" is a small letterspaced caps descriptor underneath — not the primary mark.</td><td class="on">"Aykon Ventures" italic high-contrast serif (Canela / Mercury Display family), matte gold, with serifs. Different stroke logic, different posture.</td></tr>
+    <tr><td class="on">Motif</td><td class="off">Quartz / diamond / crystal</td><td class="on">No diamond, no crystal — type-led mark</td></tr>
+    <tr><td class="on">Palette</td><td class="off">Glossy gold + dark</td><td class="on">Matte gold + emerald + onyx + limestone</td></tr>
+    <tr><td class="on">Imagery</td><td class="off">Glassy renders, luxury-tower codes</td><td class="on">Editorial photography, material detail</td></tr>
+    <tr><td class="on">Voice</td><td class="off">Luxury-developer marketing</td><td class="on">Editorial, plain about alignment</td></tr>
+    <tr><td class="on">Naming discipline</td><td class="off">"Aykon City," "Aykon Hotel"</td><td class="on">Always "Aykon Ventures" + descriptor — never bare "Aykon"</td></tr>
+  </table>
+  <div class="callout">Defence in one sentence: <em>"DAMAC's Aykon is a place; Aykon Ventures is an investor. Same letters, opposite categories."</em> The brand maintains this gap visually and verbally on every surface.</div>
+</div>
+
+<!-- 14 APPLICATIONS -->
+<div class="sec">
+  <div class="k">14 · Brand applications</div>
+  <h1 class="s">Where the brand actually lives.</h1>
+  <div class="dek">Templates for the surfaces that carry the most weight. Each shows the system applied — replace the placeholder wordmark with the commissioned mark when it lands.</div>
+
+  <h2>Business card</h2>
+  <div class="grid2">
+    <div class="mockcard">
+      <div class="mono" style="color:var(--gold-lt)">DUBAI MARKETING &amp; HOLDING HOUSE</div>
+      <div class="wm">Aykon Ventures</div>
+      <div class="mono">WE BACK WHAT WE SELL</div>
+    </div>
+    <div class="mockcard" style="background:var(--limestone);color:var(--onyx);border:1px solid var(--rule)">
+      <div style="font-family:JetBrains Mono;font-size:7pt;letter-spacing:1.5pt;color:var(--gold);text-transform:uppercase">A</div>
+      <div>
+        <div style="font-family:Cormorant;font-style:italic;font-size:13pt">Prachi Vishesh Manghnani</div>
+        <div class="mono" style="color:var(--muted)">FOUNDER &amp; MANAGER</div>
+      </div>
+      <div class="mono" style="color:var(--muted)">PRACHI@AYKONVENTURES.AE · MEYDAN GRANDSTAND, DUBAI</div>
+    </div>
+  </div>
+
+  <h2>Instagram thesis tile</h2>
+  <div class="grid2">
+    <div class="ig onyx">
+      <div class="head">AYKON · THESIS 04 · BUSINESS BAY</div>
+      <div class="big">Three reasons we're backing Business Bay. And one reason we passed on Marina.</div>
+      <div class="mono">WE BACK WHAT WE SELL</div>
+    </div>
+    <div class="ig stone">
+      <div class="head" style="color:var(--gold)">AYKON · DEAL NOTE</div>
+      <div class="big">Our name is on a floor in DIFC. Our stake is in.</div>
+      <div class="mono" style="color:var(--muted)">RERA PARTNER NAMED INSIDE · DM PRACHI</div>
+    </div>
+  </div>
+
+  <h2>Deal one-pager · the workhorse</h2>
+  <div style="border:1px solid var(--rule);border-radius:4px;padding:16pt;background:var(--paper);break-inside:avoid;margin:10pt 0">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div style="font-family:Cinzel;font-size:13pt;font-weight:600;letter-spacing:2.5pt;text-transform:uppercase">Aykon Ventures</div>
+      <div style="font-family:JetBrains Mono;font-size:8pt;letter-spacing:1.5pt;color:var(--emerald);text-transform:uppercase">DIFC · MAY 2026</div>
+    </div>
+    <div style="font-family:Cormorant;font-weight:600;font-size:19pt;margin:10pt 0 4pt">A full floor in DIFC. Our name and stake are on it.</div>
+    <p style="font-size:9pt;color:var(--onyx-soft);max-width:90%">We've put our name and a small co-invest stake on this floor. The transaction is executed by [RERA-licensed partner — named below]. Co-invest interest open to a small circle on the same terms.</p>
+    <div style="display:flex;gap:22pt;margin-top:10pt;border-top:1px solid var(--rule);padding-top:9pt">
+      <div><div style="font-family:JetBrains Mono;font-size:7pt;letter-spacing:1.5pt;color:var(--emerald);text-transform:uppercase">OUR STAKE</div><div style="font-family:JetBrains Mono;font-size:13pt">AED 250k</div></div>
+      <div><div style="font-family:JetBrains Mono;font-size:7pt;letter-spacing:1.5pt;color:var(--emerald);text-transform:uppercase">ASSET</div><div style="font-family:JetBrains Mono;font-size:13pt">AED 4.2M</div></div>
+      <div><div style="font-family:JetBrains Mono;font-size:7pt;letter-spacing:1.5pt;color:var(--emerald);text-transform:uppercase">RERA PARTNER</div><div style="font-family:JetBrains Mono;font-size:13pt">[Named]</div></div>
+      <div><div style="font-family:JetBrains Mono;font-size:7pt;letter-spacing:1.5pt;color:var(--emerald);text-transform:uppercase">TERMS</div><div style="font-family:JetBrains Mono;font-size:13pt">Pari passu</div></div>
+    </div>
+  </div>
+  <p style="font-size:9pt;color:var(--muted)">Note the discipline: stake disclosed, RERA partner named, never a promised return. "Plain about alignment" — Section 07 — made tangible.</p>
+
+  <h2>Hoarding · when Jewels or the architecture vertical ships</h2>
+  <div class="hoard">
+    <div class="ar">ايكون فينتشرز</div>
+    <div class="mono" style="color:var(--gold-lt)">AYKON JEWELS · LAUNCH SERIES · 2026</div>
+    <div class="big">Worth more<br>than its weight.</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end"><div style="font-family:Cinzel;font-size:13pt;font-weight:600;letter-spacing:2.5pt;text-transform:uppercase;color:var(--gold-lt)">Aykon Ventures</div><div style="font-family:JetBrains Mono;font-size:7pt;letter-spacing:1.5pt;color:var(--gold-lt);text-transform:uppercase">WE BACK WHAT WE SELL</div></div>
+  </div>
+</div>
+
+<!-- 15 GOVERNANCE -->
+<div class="sec">
+  <div class="k">15 · Governance</div>
+  <h1 class="s">What never ships.</h1>
+  <div class="dek">The operational filters. Anything that fails one of these goes back to the brief.</div>
+
+  <div class="grid2">
+    <div class="cell"><div class="lab">× Logo &amp; mark</div><p>Never bare "Aykon" — always "Aykon Ventures" + descriptor. Never the Vol 00 diamond. Never gloss-gold or 3D bevel. Never set the wordmark in sans.</p></div>
+    <div class="cell"><div class="lab">× Colour</div><p>Bronze is folded into Gold. Maroon is gone. Gold never exceeds ~3% of a surface. Emerald never as wallpaper. Onyx/Limestone hold the ground.</p></div>
+    <div class="cell"><div class="lab">× Voice</div><p>Never "luxury / premium / trusted / guaranteed." Never fund/syndicate/AUM language. Never urgency. Never "DM for price." Always disclose the RERA partner.</p></div>
+    <div class="cell"><div class="lab">× Imagery</div><p>No skylines, renders, agent smiles, drone timelapses. No falcon, crown, crest. No diamond/quartz motif. No stock photography.</p></div>
+    <div class="cell"><div class="lab">× Overclaim</div><p>Aykon is not a fund, not a developer, not a brokerage. Saying so on any surface is the single biggest brand violation possible. Honesty about scale is the moat.</p></div>
+    <div class="cell"><div class="lab">× DAMAC adjacency</div><p>The mark must not visually or verbally resemble DAMAC's Aykon City. If a layout feels close, it goes back.</p></div>
+  </div>
+
+  <h2>The three open decisions on the record</h2>
+  <p>For the founder to lock at her pace; nothing downstream is blocked except the wordmark.</p>
+  <ul class="reasoned">
+    <li><b>Wordmark final cut.</b> Going to external type designer per the Section 12 brief. Strategist not involved in execution; brief is the deliverable.</li>
+    <li><b>Tagline.</b> All four kept live (<em>Skin in. · Same side of the table. · We back what we sell. · Name on it.</em>); real-world A/B testing picks the winner over the first 90 days of public-facing content.</li>
+  </ul>
+</div>
+
+<!-- 16 PUNCH LIST -->
+<div class="sec">
+  <div class="k">16 · Punch list — what's next</div>
+  <h1 class="s">From book to brand, in ten steps.</h1>
+  <div class="dek">Two items gate everything; the other eight run in parallel. End-to-end: ~4 weeks to a fully refreshed brand and a live site.</div>
+
+  <ol class="checklist">
+    <li><b>Architecture name locked · Aykon Spaces ✓</b>
+      <span>Founder picked Aykon Spaces. Bureau and Studio retired to the brand archive as documented alternates.</span></li>
+    <li><b>Run the wordmark through the Designer Brief (Section 12)</b>
+      <span>Paste the brief into ChatGPT / Midjourney, or hand to a human type designer (Arabic-Latin specialist preferred — Tarek Atrissi, 29LT, or a freelancer via Behance). Iterate 2–3 rounds. Output: editable vector (Latin + Arabic), 2 weights, 3 colourways. ~2 weeks.</span></li>
+    <li><b>Reflow this book to the commissioned wordmark</b>
+      <span>Once the wordmark lands, swap the Cinzel placeholder across every cover and application page in this book. Re-render the master PDF. 1 day.</span></li>
+    <li><b>Cut the full logo file pack</b>
+      <span>Primary / horizontal / seal / Arabic-led versions, gold-on-light + gold-on-dark + one-colour onyx + reversed white, transparent PNG + SVG + favicon, plus Jewels and architecture-vertical sub-brand lockups.</span></li>
+    <li><b>Voice library · 30 ready-to-use lines</b>
+      <span>10 IG thesis tiles · 10 deal-announcement templates · 5 partner-deck headlines · 5 Jewels / architecture lines. Each on-brand, plug-and-play, bilingual where it matters.</span></li>
+    <li><b>Build aykonventures.ae</b>
+      <span>One-pager. Hero with the commissioned wordmark + the SMP. Three sections: what we do (marketing &amp; holding), what we back (live deals), who we partner with (RERA vehicles). Plain about alignment.</span></li>
+    <li><b>Aykon Jewels mini-identity + launch plan</b>
+      <span>Logotype (inherits parent), emerald-and-gold packaging system, 6-week IG launch sequence. Owns the jewellery vertical narrative.</span></li>
+    <li><b>Architecture vertical mini-identity</b>
+      <span>Logotype, project-sheet template, two case-study skins. Pitched for portfolio use as work comes in.</span></li>
+    <li><b>Partner-marketing one-pager template</b>
+      <span>The single PDF a RERA partner gets when they're co-running a campaign with Aykon. States alignment, scope, deliverables, IP, and the "we don't push what we wouldn't back" clause.</span></li>
+    <li><b>DAMAC trademark/class scan + Meydan name review</b>
+      <span>One lawyer hour: confirm "Aykon Ventures" is clean in the relevant trade classes vs DAMAC's "Aykon" usage. Document the result so the brand is defended on paper.</span></li>
+  </ol>
+
+  <div class="callout dark"><strong>Founder decision point still needed:</strong> wordmark commission go-ahead (Section 13). Architecture name (Aykon Spaces) is locked. Everything else is execution against this book.</div>
+
+  <div class="foot">AYKON VENTURES · BRAND BOOK · MASTER EDITION · EDITION 02 · FINAL · 29 MAY 2026 · WE BACK WHAT WE SELL.</div>
+</div>
+
+<!-- 17 ASSET INDEX APPENDIX -->
+<div class="sec">
+  <div class="k">17 · Asset index · appendix</div>
+  <h1 class="s">One-stop reference for the developer.</h1>
+  <div class="dek">Everything a website developer, designer, or partner needs to build against Aykon without flipping through the book. Colours, type files, file paths, the do/don't compressed.</div>
+
+  <h2>Colour palette · HEX reference</h2>
+  <table>
+    <tr><th>Name</th><th>HEX</th><th>RGB</th><th>Usage</th></tr>
+    <tr><td class="on">Limestone</td><td style="font-family:'JetBrains Mono';font-size:9.5pt">#EDE7DB</td><td style="font-family:'JetBrains Mono';font-size:9pt">237 · 231 · 219</td><td>The world / ground · 70%</td></tr>
+    <tr><td class="on">Onyx</td><td style="font-family:'JetBrains Mono';font-size:9.5pt">#14110E</td><td style="font-family:'JetBrains Mono';font-size:9pt">20 · 17 · 14</td><td>Ink, authority, dark-mode canvas · 22%</td></tr>
+    <tr><td class="on">Aykon Emerald</td><td style="font-family:'JetBrains Mono';font-size:9.5pt">#0E4A38</td><td style="font-family:'JetBrains Mono';font-size:9pt">14 · 74 · 56</td><td>Signature accent · 5%</td></tr>
+    <tr><td class="on">Aykon Gold</td><td style="font-family:'JetBrains Mono';font-size:9.5pt">#9C7A3C</td><td style="font-family:'JetBrains Mono';font-size:9pt">156 · 122 · 60</td><td>Wordmark / seal only · 3%</td></tr>
+    <tr><td class="on">Gold Lt</td><td style="font-family:'JetBrains Mono';font-size:9.5pt">#C49A56</td><td style="font-family:'JetBrains Mono';font-size:9pt">196 · 154 · 86</td><td>For wordmark on dark surfaces</td></tr>
+    <tr><td class="on">Emerald Lt</td><td style="font-family:'JetBrains Mono';font-size:9.5pt">#1F6A52</td><td style="font-family:'JetBrains Mono';font-size:9pt">31 · 106 · 82</td><td>For emerald on dark / dark-mode</td></tr>
+    <tr><td class="on">Paper</td><td style="font-family:'JetBrains Mono';font-size:9.5pt">#FBF9F4</td><td style="font-family:'JetBrains Mono';font-size:9pt">251 · 249 · 244</td><td>Lighter ground for screens / documents</td></tr>
+  </table>
+
+  <h2>Type system · faces &amp; web links</h2>
+  <table>
+    <tr><th>Role</th><th>Typeface</th><th>Web source</th><th>Notes</th></tr>
+    <tr><td class="on">Display / wordmark</td><td style="font-family:'JetBrains Mono';font-size:9.5pt">Cinzel</td><td style="font-family:'JetBrains Mono';font-size:8.5pt">fonts.google.com/specimen/Cinzel</td><td>Caps only. Placeholder until custom Route C cut lands.</td></tr>
+    <tr><td class="on">Editorial</td><td style="font-family:'JetBrains Mono';font-size:9.5pt">Cormorant</td><td style="font-family:'JetBrains Mono';font-size:8.5pt">fonts.google.com/specimen/Cormorant</td><td>Headlines, deks, pull-statements (sentence case).</td></tr>
+    <tr><td class="on">Body / UI</td><td style="font-family:'JetBrains Mono';font-size:9.5pt">Inter</td><td style="font-family:'JetBrains Mono';font-size:8.5pt">fonts.google.com/specimen/Inter</td><td>All running copy, web body.</td></tr>
+    <tr><td class="on">Arabic</td><td style="font-family:'JetBrains Mono';font-size:9.5pt">Amiri</td><td style="font-family:'JetBrains Mono';font-size:8.5pt">fonts.google.com/specimen/Amiri</td><td>Classical Naskh. Co-equal with Latin.</td></tr>
+    <tr><td class="on">Data / mono</td><td style="font-family:'JetBrains Mono';font-size:9.5pt">JetBrains Mono</td><td style="font-family:'JetBrains Mono';font-size:8.5pt">fonts.google.com/specimen/JetBrains+Mono</td><td>Prices, terms, eyebrows, labels.</td></tr>
+  </table>
+
+  <h2>File paths · what lives where</h2>
+  <ul class="plain" style="font-family:'JetBrains Mono';font-size:8.5pt;line-height:1.9">
+    <li><b>Master brand book</b> · aykon/Aykon_Ventures_Brand_Book_Master.pdf</li>
+    <li><b>Decision board image</b> · aykon/images/three_routes.png</li>
+    <li><b>Private Institution reveal</b> · aykon/images/private_institution_reveal.png</li>
+    <li><b>Italic alternates (Route A)</b> · aykon/images/route_a_refinement.png</li>
+    <li><b>Logo kit (Vol 01 archive)</b> · aykon/logo/</li>
+    <li><b>Type files</b> · aykon/fonts/</li>
+    <li><b>HTML source for the brand book</b> · aykon/master_brandbook.html</li>
+  </ul>
+
+  <h2>Governance · do / don't compressed</h2>
+  <div class="grid2">
+    <div class="cell">
+      <h3>Do</h3>
+      <ul class="plain">
+        <li>Always "Aykon Ventures" + descriptor, never bare "Aykon"</li>
+        <li>Lead with skin-in-game proof (name + stake + RERA partner)</li>
+        <li>Sentence case everywhere except mono eyebrows + display caps</li>
+        <li>Cinzel names · Cormorant writes · Inter reads</li>
+        <li>Disclose the RERA partner on every deal-facing surface</li>
+        <li>Arabic ايكون فينتشرز co-equal with Latin from sketch one</li>
+      </ul>
+    </div>
+    <div class="cell">
+      <h3>Don't</h3>
+      <ul class="plain">
+        <li>No "luxury / premium / trusted / leading / guaranteed"</li>
+        <li>No fund / syndicate / AUM / portfolio language</li>
+        <li>No gloss-gold gradients, no 3D bevels, no skylines, no falcons</li>
+        <li>No urgency, no "DM for price," no emoji in brand copy</li>
+        <li>Never resemble DAMAC MAISON's italic sans wordmark</li>
+        <li>Never translate Arabic — always write it native</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Open decisions on file</h2>
+  <ul class="plain">
+    <li><b>Wordmark final cut.</b> Going to external type designer. Brief lives in Section 13.</li>
+    <li><b>Tagline.</b> Four kept live for A/B over the first 90 days of public-facing content.</li>
+  </ul>
+
+  <div class="foot">AYKON VENTURES · ASSET INDEX · APPENDIX · EDITION 02 · FINAL · 29 MAY 2026</div>
+</div>
+
+</body></html>
