@@ -52,7 +52,7 @@ function VenturesPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-rule">
           {[
             ["Private acquisitions", "Confidential search and negotiation for primary and trophy assets across the UAE and India."],
-            ["Consortium structuring", "Co-investment and syndicate formation for residential and mixed-use opportunities."],
+            ["Consortium structuring", "Co-investment and deal-by-deal participation for residential and mixed-use opportunities."],
             ["Branded residences", "Positioning and go-to-market for collaborations with global luxury houses."],
             ["Marketing & advisory", "Editorial, brand, and launch strategy for developers who require restraint."],
           ].map(([k, v]) => (

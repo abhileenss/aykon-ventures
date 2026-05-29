@@ -9,11 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WhatWeDoRouteImport } from './routes/what-we-do'
+import { Route as WhatWeBackRouteImport } from './routes/what-we-back'
 import { Route as VenturesRouteImport } from './routes/ventures'
 import { Route as SpacesRouteImport } from './routes/spaces'
+import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as JewelsRouteImport } from './routes/jewels'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WhatWeDoRoute = WhatWeDoRouteImport.update({
+  id: '/what-we-do',
+  path: '/what-we-do',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhatWeBackRoute = WhatWeBackRouteImport.update({
+  id: '/what-we-back',
+  path: '/what-we-back',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const VenturesRoute = VenturesRouteImport.update({
   id: '/ventures',
   path: '/ventures',
@@ -24,9 +39,24 @@ const SpacesRoute = SpacesRouteImport.update({
   path: '/spaces',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PartnersRoute = PartnersRouteImport.update({
+  id: '/partners',
+  path: '/partners',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const JewelsRoute = JewelsRouteImport.update({
   id: '/jewels',
   path: '/jewels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -37,40 +67,102 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/jewels': typeof JewelsRoute
+  '/partners': typeof PartnersRoute
   '/spaces': typeof SpacesRoute
   '/ventures': typeof VenturesRoute
+  '/what-we-back': typeof WhatWeBackRoute
+  '/what-we-do': typeof WhatWeDoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/jewels': typeof JewelsRoute
+  '/partners': typeof PartnersRoute
   '/spaces': typeof SpacesRoute
   '/ventures': typeof VenturesRoute
+  '/what-we-back': typeof WhatWeBackRoute
+  '/what-we-do': typeof WhatWeDoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/jewels': typeof JewelsRoute
+  '/partners': typeof PartnersRoute
   '/spaces': typeof SpacesRoute
   '/ventures': typeof VenturesRoute
+  '/what-we-back': typeof WhatWeBackRoute
+  '/what-we-do': typeof WhatWeDoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/jewels' | '/spaces' | '/ventures'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/jewels'
+    | '/partners'
+    | '/spaces'
+    | '/ventures'
+    | '/what-we-back'
+    | '/what-we-do'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/jewels' | '/spaces' | '/ventures'
-  id: '__root__' | '/' | '/jewels' | '/spaces' | '/ventures'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/jewels'
+    | '/partners'
+    | '/spaces'
+    | '/ventures'
+    | '/what-we-back'
+    | '/what-we-do'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/jewels'
+    | '/partners'
+    | '/spaces'
+    | '/ventures'
+    | '/what-we-back'
+    | '/what-we-do'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
   JewelsRoute: typeof JewelsRoute
+  PartnersRoute: typeof PartnersRoute
   SpacesRoute: typeof SpacesRoute
   VenturesRoute: typeof VenturesRoute
+  WhatWeBackRoute: typeof WhatWeBackRoute
+  WhatWeDoRoute: typeof WhatWeDoRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/what-we-do': {
+      id: '/what-we-do'
+      path: '/what-we-do'
+      fullPath: '/what-we-do'
+      preLoaderRoute: typeof WhatWeDoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/what-we-back': {
+      id: '/what-we-back'
+      path: '/what-we-back'
+      fullPath: '/what-we-back'
+      preLoaderRoute: typeof WhatWeBackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ventures': {
       id: '/ventures'
       path: '/ventures'
@@ -85,11 +177,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SpacesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/partners': {
+      id: '/partners'
+      path: '/partners'
+      fullPath: '/partners'
+      preLoaderRoute: typeof PartnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/jewels': {
       id: '/jewels'
       path: '/jewels'
       fullPath: '/jewels'
       preLoaderRoute: typeof JewelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -104,9 +217,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
   JewelsRoute: JewelsRoute,
+  PartnersRoute: PartnersRoute,
   SpacesRoute: SpacesRoute,
   VenturesRoute: VenturesRoute,
+  WhatWeBackRoute: WhatWeBackRoute,
+  WhatWeDoRoute: WhatWeDoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
