@@ -5,11 +5,12 @@ import { Seal } from "./Seal";
 export const WHATSAPP_URL = "https://wa.me/971563971998";
 
 const NAV_LINKS = [
-  { label: "About", to: "/" as const, hash: "about" },
+  { label: "What we do", to: "/what-we-do" as const },
+  { label: "What we back", to: "/what-we-back" as const },
   { label: "Ventures", to: "/ventures" as const },
   { label: "Jewels", to: "/jewels" as const },
   { label: "Spaces", to: "/spaces" as const },
-  { label: "Founder", to: "/" as const, hash: "founder" },
+  { label: "Contact", to: "/contact" as const },
 ] as const;
 
 function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
