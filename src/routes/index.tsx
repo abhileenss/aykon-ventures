@@ -53,7 +53,7 @@ function Hero() {
 
           <h1 className="editorial mt-10 text-[15vw] sm:text-[12vw] md:text-[8.5rem] lg:text-[10.5rem] leading-[0.92] text-limestone fade-in fade-in-2">
             We back<br />
-            <span className="italic text-gold">what we sell.</span>
+            <span className="italic text-limestone">what we sell.</span>
           </h1>
 
           <p className="mt-10 max-w-xl text-base md:text-lg leading-relaxed text-limestone/85 fade-in fade-in-3">
