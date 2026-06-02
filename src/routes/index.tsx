@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { getFeaturedPost } from "@/data/posts";
 import heroStone from "@/assets/hero-stone.jpg";
 import founderImg from "@/assets/founder.jpg";
 import venturesImg from "@/assets/ventures.jpg";
@@ -296,6 +297,111 @@ function Pillars() {
   );
 }
 
+function DispatchTeaser() {
+  const post = getFeaturedPost();
+  const [email, setEmail] = useState("");
+  const [done, setDone] = useState(false);
+
+  function onSubscribe(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email.trim()) return;
+    setDone(true);
+  }
+
+  return (
+    <section id="dispatch" className="border-t border-rule bg-muted/40">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20 py-28 md:py-44">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16 reveal">
+          <div className="lg:col-span-3">
+            <p className="eyebrow text-foreground/55">05 — The Dispatch</p>
+          </div>
+          <div className="lg:col-span-8 lg:col-start-5">
+            <h2 className="editorial text-4xl md:text-6xl">
+              A letter,<br />
+              <span className="italic">not a broadcast.</span>
+            </h2>
+            <p className="mt-8 text-base md:text-lg leading-relaxed text-foreground/70 max-w-xl">
+              Short notes on markets, pieces, and considered observations.
+              Sent when there is something worth saying.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-px bg-rule reveal">
+          {/* Featured post */}
+          {post && (
+            <Link
+              to="/dispatch/$slug"
+              params={{ slug: post.slug }}
+              className="group lg:col-span-7 bg-background p-10 md:p-14 flex flex-col"
+              data-hover
+            >
+              <div className="flex items-center justify-between">
+                <p className="eyebrow text-emerald">{post.eyebrow}</p>
+                <p className="eyebrow text-foreground/40">{post.date}</p>
+              </div>
+              <div className="hair-rule my-8 w-12 transition-all duration-700 group-hover:w-24 group-hover:bg-emerald" />
+              <h3 className="editorial text-3xl md:text-5xl text-foreground group-hover:text-emerald transition-colors duration-500 flex-1">
+                {post.title}
+              </h3>
+              <p className="mt-8 text-base leading-relaxed text-foreground/65 max-w-lg">
+                {post.excerpt}
+              </p>
+              <p className="mt-10 eyebrow text-foreground/40 group-hover:text-emerald transition-colors duration-500">
+                Read the letter&nbsp;→
+              </p>
+            </Link>
+          )}
+
+          {/* Email signup */}
+          <div className="lg:col-span-5 bg-onyx text-limestone p-10 md:p-14 flex flex-col justify-center">
+            <p className="eyebrow text-limestone/55">Stay in the loop</p>
+            <h3 className="editorial mt-6 text-3xl md:text-4xl text-limestone">
+              Receive<br /><span className="italic">The Dispatch.</span>
+            </h3>
+            <p className="mt-6 text-sm leading-relaxed text-limestone/60 max-w-xs">
+              A quiet note when there is something worth reading. No frequency promises.
+            </p>
+            <div className="hair-rule my-8 w-12 bg-limestone/20" />
+            {done ? (
+              <div>
+                <p className="editorial text-2xl text-limestone">You're on the list.</p>
+                <p className="mt-3 eyebrow text-limestone/50">Expect a letter soon.</p>
+              </div>
+            ) : (
+              <form onSubmit={onSubscribe} className="flex flex-col gap-6">
+                <input
+                  type="email"
+                  required
+                  maxLength={200}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Your email"
+                  className="w-full bg-transparent border-0 border-b border-limestone/30 focus:border-limestone outline-none py-3 text-base text-limestone placeholder:text-limestone/30 transition-colors"
+                />
+                <button
+                  type="submit"
+                  className="self-start px-8 py-4 bg-limestone text-onyx eyebrow hover:bg-gold transition-colors duration-500"
+                  data-hover
+                >
+                  Join The Dispatch&nbsp;→
+                </button>
+              </form>
+            )}
+            <Link
+              to="/dispatch"
+              className="mt-10 eyebrow text-limestone/40 hover:text-limestone transition-colors"
+              data-hover
+            >
+              Browse all letters&nbsp;→
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const WA_NUMBER = "971563971998";
 
 function Contact() {
@@ -323,7 +429,7 @@ function Contact() {
     <section id="contact" className="border-t border-rule bg-onyx text-limestone">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20 py-28 md:py-44 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
         <div className="lg:col-span-5">
-          <p className="eyebrow text-limestone/55">04 — Contact</p>
+          <p className="eyebrow text-limestone/55">06 — Contact</p>
           <h2 className="editorial mt-8 text-4xl md:text-6xl lg:text-7xl text-limestone">
             Start a<br /><span className="italic">conversation.</span>
           </h2>
@@ -399,6 +505,7 @@ function Index() {
       />
       <Founder />
       <Pillars />
+      <DispatchTeaser />
       <Contact />
       <Footer />
     </main>
