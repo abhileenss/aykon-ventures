@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: "Ventures", to: "/ventures" as const },
   { label: "Jewels", to: "/jewels" as const },
   { label: "Spaces", to: "/spaces" as const },
+  { label: "The Dispatch", to: "/dispatch" as const },
   { label: "Contact", to: "/contact" as const },
 ] as const;
 
@@ -197,6 +198,7 @@ export function Footer() {
             <li><Link to="/ventures" className="hover:text-limestone transition-colors">Aykon Ventures</Link></li>
             <li><Link to="/jewels" className="hover:text-limestone transition-colors">Aykon Jewels</Link></li>
             <li><Link to="/spaces" className="hover:text-limestone transition-colors">Aykon Spaces</Link></li>
+            <li><Link to="/dispatch" className="hover:text-limestone transition-colors">The Dispatch</Link></li>
           </ul>
         </div>
         <div className="md:col-span-2">

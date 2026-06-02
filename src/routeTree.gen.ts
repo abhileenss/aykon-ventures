@@ -17,6 +17,8 @@ import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as JewelsRouteImport } from './routes/jewels'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as DispatchRouteImport } from './routes/dispatch'
+import { Route as DispatchSlugRouteImport } from './routes/dispatch.$slug'
 import { Route as IndexRouteImport } from './routes/index'
 
 const WhatWeDoRoute = WhatWeDoRouteImport.update({
@@ -59,6 +61,16 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DispatchRoute = DispatchRouteImport.update({
+  id: '/dispatch',
+  path: '/dispatch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DispatchSlugRoute = DispatchSlugRouteImport.update({
+  id: '/dispatch/$slug',
+  path: '/dispatch/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -69,6 +81,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/dispatch': typeof DispatchRoute
+  '/dispatch/$slug': typeof DispatchSlugRoute
   '/jewels': typeof JewelsRoute
   '/partners': typeof PartnersRoute
   '/spaces': typeof SpacesRoute
@@ -80,6 +94,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/dispatch': typeof DispatchRoute
+  '/dispatch/$slug': typeof DispatchSlugRoute
   '/jewels': typeof JewelsRoute
   '/partners': typeof PartnersRoute
   '/spaces': typeof SpacesRoute
@@ -92,6 +108,8 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/dispatch': typeof DispatchRoute
+  '/dispatch/$slug': typeof DispatchSlugRoute
   '/jewels': typeof JewelsRoute
   '/partners': typeof PartnersRoute
   '/spaces': typeof SpacesRoute
@@ -105,6 +123,8 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/dispatch'
+    | '/dispatch/$slug'
     | '/jewels'
     | '/partners'
     | '/spaces'
@@ -116,6 +136,8 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/dispatch'
+    | '/dispatch/$slug'
     | '/jewels'
     | '/partners'
     | '/spaces'
@@ -127,6 +149,8 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/dispatch'
+    | '/dispatch/$slug'
     | '/jewels'
     | '/partners'
     | '/spaces'
@@ -139,6 +163,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  DispatchRoute: typeof DispatchRoute
+  DispatchSlugRoute: typeof DispatchSlugRoute
   JewelsRoute: typeof JewelsRoute
   PartnersRoute: typeof PartnersRoute
   SpacesRoute: typeof SpacesRoute
@@ -205,6 +231,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dispatch': {
+      id: '/dispatch'
+      path: '/dispatch'
+      fullPath: '/dispatch'
+      preLoaderRoute: typeof DispatchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dispatch/$slug': {
+      id: '/dispatch/$slug'
+      path: '/dispatch/$slug'
+      fullPath: '/dispatch/$slug'
+      preLoaderRoute: typeof DispatchSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -219,6 +259,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  DispatchRoute: DispatchRoute,
+  DispatchSlugRoute: DispatchSlugRoute,
   JewelsRoute: JewelsRoute,
   PartnersRoute: PartnersRoute,
   SpacesRoute: SpacesRoute,
